@@ -1,0 +1,496 @@
+/* 主页logo 盒子 */
+
+.logo {
+    width: 236px;
+    height: 60px;
+}
+
+
+/* 分类导航、图片轮播 */
+
+.box {
+    overflow: hidden;
+    position: relative;
+}
+
+
+/* 消除列表样式 */
+
+.box li {
+    list-style: none;
+    text-decoration: none;
+}
+
+
+/* 图片轮播盒子设置相对定位 */
+
+.box .imgbox {
+    position: relative;
+}
+
+
+/* 图片轮播盒子子元素 ul设置宽度已达到一行包含多张照片效果 */
+
+.box .imgbox ul {
+    width: 2452px;
+}
+
+
+/* 图片轮播盒子子元素 使ul 下的li浮动 以达到一行排列效果*/
+
+.box .imgbox li {
+    float: left;
+}
+
+
+/*  图片轮播盒子子元素 消除li脱离文档流的浮动影响 */
+
+
+/* .box .imgbox ul::after {
+            content: "";
+            display: block;
+            clear: both;
+        } */
+
+
+/* 图片轮播盒子子元素 设置li里面 a元素为块状行内元素*/
+
+.imgbox li a {
+    display: inline-block;
+}
+
+
+/*  图片轮播盒子子元素 向前翻页箭头 */
+
+.imgbox a.prvious {
+    width: 38px;
+    height: 66px;
+    background: url("../img/arrow.png") no-repeat left center;
+    display: block;
+    position: absolute;
+    left: 242px;
+    top: 214px;
+    cursor: pointer;
+}
+
+
+/*  图片轮播盒子子元素 向后翻页箭头 */
+
+.imgbox a.next {
+    width: 38px;
+    height: 66px;
+    background: url("../img/arrow.png") no-repeat right center;
+    display: block;
+    position: absolute;
+    right: 8px;
+    top: 214px;
+    cursor: pointer;
+}
+
+
+/*  图片轮播盒子子元素 圆点导航盒子以相对.imgbox 设置绝对定位改变位置 */
+
+.container .imgbox ul.nav-circle {
+    position: absolute;
+    width: 110px;
+    right: 26px;
+    bottom: 26px;
+}
+
+
+/*  图片轮播盒子子元素 圆点导航效果 */
+
+.imgbox ul.nav-circle li {
+    width: 8px;
+    height: 8px;
+    background-color: #022E3E;
+    margin-right: 10px;
+    border: 2px solid #4D6C77;
+    border-radius: 6px;
+    float: left;
+    cursor: pointer;
+}
+
+
+/*  图片轮播盒子子元素 圆点导航 鼠标经过 效果 */
+
+.imgbox ul.nav-circle li:hover,
+.imgbox ul.nav-circle li.focus {
+    background-color: #6693A3;
+}
+
+
+/*  图片轮播盒子子元素 箭头 鼠标经过 效果 */
+
+.imgbox a.prvious:hover,
+.imgbox>a.next:hover {
+    background-color: #023642;
+    border-radius: 4px;
+}
+
+
+/* 左侧导航栏 外层盒子 */
+
+.navbox {
+    width: 236px;
+    padding: 20px 0px;
+    background-color: #3F5E69;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+
+/* 左侧导航栏 a标签效果，并实现背景箭头*/
+
+.navbox ul>li>a {
+    height: 42px;
+    line-height: 42px;
+    padding-left: 30px;
+    background: url("../img/nav-arrow.png") no-repeat 202px center;
+    display: block;
+}
+
+
+/* 左侧导航栏 a标签鼠标经过效果*/
+
+.navbox ul>li>a:hover {
+    background-color: #FF6700;
+}
+
+
+/* 左侧导航栏 a标签内字体颜色*/
+
+.navbox ul>li>a span {
+    color: #FFFFFF;
+    margin-right: 4px;
+    display: inline-block;
+}
+
+
+/* 移动到左侧导航栏出现的分类 */
+
+.item {
+    width: 989px;
+    height: 460px;
+    position: absolute;
+    left: 236px;
+    top: 0px;
+    background-color: #fff;
+    display: none;
+    border-top: 1px solid #E0E0E0;
+    border-right: 1px solid #E0E0E0;
+    border-bottom: 1px solid #E0E0E0;
+}
+
+
+/* 左侧导航栏 二级导航样式*/
+
+.navbox .item ol>li {
+    float: left;
+}
+
+.navbox .item>ol>li a {
+    display: block;
+    height: 77px;
+    width: 225px;
+    background-image: none;
+    padding-left: 22px;
+}
+
+.navbox .item ol>li span {
+    display: block;
+    height: 77px;
+    line-height: 77px;
+    color: #363636;
+    font-size: 12px;
+    float: left;
+}
+
+.navbox .item>ol>li a:hover span {
+    color: #FF6700;
+}
+
+.navbox .item ol>li img {
+    height: 34px;
+    margin-top: 22px;
+    float: left;
+}
+
+
+/* 左侧导航栏 二级导航end*/
+
+
+/* 左侧导航栏 a标签鼠标经过时显示隐藏的二级导航*/
+
+.navbox ul li:hover .item {
+    display: block;
+}
+
+
+/* 固定导航 */
+
+#tool-bar {
+    width: 25px;
+    border: 1px solid #F5F5F5;
+    border-bottom: none;
+    position: fixed;
+    right: 70px;
+    bottom: 100px;
+}
+
+#tool-bar ul li {
+    width: 26px;
+    height: 40px;
+    list-style: none;
+    border-bottom: 1px solid #F5F5F5;
+    background: url("../img/wechat.png") no-repeat center center;
+    background-size: 77.8%;
+    position: relative;
+}
+
+#tool-bar ul li a {
+    height: 40px;
+    display: block;
+}
+
+#tool-bar ul li.mine {
+    background-image: url("../img/mine.png");
+}
+
+#tool-bar ul li.aftermarket {
+    background-image: url("../img/aftermarket.png");
+}
+
+#tool-bar ul li.service {
+    background-image: url("../img/service.png");
+}
+
+#tool-bar ul li.shopcar {
+    background-image: url("../img/shopcar.png");
+}
+
+#tool-bar ul li:hover {
+    background-image: url("../img/wechat-focus.png");
+}
+
+#tool-bar ul li.mine:hover {
+    background-image: url("../img/mine-focus.png");
+}
+
+#tool-bar ul li.aftermarket:hover {
+    background-image: url("../img/aftermarket-focus.png");
+}
+
+#tool-bar ul li.service:hover {
+    background-image: url("../img/service-focus.png");
+}
+
+#tool-bar ul li.shopcar:hover {
+    background-image: url("../img/shopcar-focus.png");
+}
+
+#tool-bar ul li p {
+    background-color: #fff;
+    border: 1px solid #F5F5F5;
+    background: #fff;
+    color: #757575;
+    height: 28px;
+    line-height: 28px;
+    width: 72px;
+    text-align: center;
+    position: absolute;
+    left: -85px;
+    top: 5px;
+    display: none;
+}
+
+#tool-bar ul li:hover p {
+    display: block;
+}
+
+#tool-bar ul li p::before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    line-height: 0px;
+    display: block;
+    border: 10px solid transparent;
+    border-left: 10px solid #fff;
+    position: absolute;
+    top: 4px;
+    right: -20px;
+}
+
+
+/* 家电 */
+
+
+/* 设置头部标题的样式begin */
+
+.hd-box {
+    height: 58px;
+    line-height: 58px;
+}
+
+.hd-box h2 {
+    font-size: 22px;
+    font-weight: normal;
+}
+
+.hd-box ul li {
+    margin-left: 28px;
+    list-style: none;
+    float: left;
+}
+
+.hd-box ul li a {
+    font-size: 18px;
+    color: #424242;
+}
+
+
+/* 头部tap链接选择时的颜色 */
+
+.hd-box ul li a.focus {
+    color: #FE675E;
+    border-bottom: 2px solid #FE675E;
+}
+
+
+/* 设置头部标题的样式 end*/
+
+
+/* 内容部分的样式 begin*/
+
+
+/* 设置每个小盒子的大小及背景 */
+
+.bd-box ul li {
+    width: 234px;
+    height: 300px;
+    background-color: #FFFFFF;
+    margin-bottom: 14px;
+    list-style: none;
+}
+
+
+/* 设置右部大盒子的背景 */
+
+.bd-box ul.right-box {
+    width: 992px;
+}
+
+
+/* 浮动右部的每个小盒子 */
+
+.bd-box ul.right-box li {
+    margin-left: 14px;
+    float: left;
+}
+
+
+/* 右部每个盒子的字体样式 */
+
+.bd-box ul.right-box li a {
+    font-size: 14px;
+    color: #333333;
+    display: block;
+    text-align: center;
+}
+
+
+/* 右部每个盒子的照片样式 */
+
+.bd-box ul.right-box li a img {
+    width: 160px;
+}
+
+
+/* 右部每个盒子的标题样式 */
+
+.bd-box ul.right-box li a h3 {
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+
+/* 右部每个盒子的介绍样式 */
+
+.bd-box ul.right-box li a .dsc {
+    font-size: 12px;
+    margin-bottom: 18px;
+    color: #757575;
+}
+
+
+/* 右部每个盒子的价格样式 */
+
+.bd-box ul.right-box li a .price {
+    color: #FE675E;
+}
+
+
+/* 右部最后一个盒子的样式begin */
+
+
+/* 最后一个盒子的背景 */
+
+.bd-box ul.right-box li.lastlist {
+    background-color: #F5F5F5;
+}
+
+
+/* 盒子里面两个小盒子背景 */
+
+.bd-box ul.right-box li.lastlist a {
+    height: 144px;
+    margin-bottom: 14px;
+    background-color: #FFFFFF;
+    text-align: left;
+}
+
+
+/* 字体小盒子宽度样式及第一个小盒子距离顶部距离 */
+
+.bd-box ul.right-box li.lastlist a p {
+    padding-left: 30px;
+    padding-top: 46px;
+    width: 108px;
+}
+
+.bd-box ul.right-box li.lastlist a p span {
+    display: block;
+}
+
+.bd-box ul.right-box li.lastlist a img {
+    width: 80px;
+    padding-top: 42px;
+}
+
+
+/* 第二个小盒子字体距离顶部样式 */
+
+.bd-box ul.right-box li.lastlist a.more p {
+    padding-top: 54px;
+}
+
+
+/* 第二个小盒子浏览更多字体样式 */
+
+.bd-box ul.right-box li.lastlist a.more span {
+    font-size: 18px;
+}
+
+
+/* 第二个小盒子图片样式 */
+
+.bd-box ul.right-box li.lastlist a.more img {
+    width: 48px;
+}
+
+
+/* 右部最后一个盒子的样式end */
+
+
+/* 内容部分的样式 end*/

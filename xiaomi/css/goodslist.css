@@ -1,0 +1,133 @@
+/* 图片轮播 */
+
+.imgshow-box {
+    width: 100%;
+    height: 620px;
+}
+
+.imgshow-box ul li {
+    width: 100%;
+    height: 620px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: auto 100%;
+}
+
+.imgshow-box ul li a {
+    display: block;
+    height: 100%;
+}
+
+
+/* 产品列表 */
+
+.goodslist {
+    background-color: #F5F5F5;
+}
+
+.goodslist .box-hd h1 {
+    height: 66px;
+    line-height: 66px;
+    font-size: 22px;
+    color: #333333;
+    font-weight: normal;
+}
+
+.goodslist .box-bd dt {
+    height: 434px;
+}
+
+.goodslist .box-bd dt img {
+    width: 854px;
+    float: left;
+}
+
+.goodslist .box-bd dt>div {
+    width: 262px;
+    height: 434px;
+    padding-top: 94px;
+    padding-bottom: 62px;
+    padding-left: 60px;
+    padding-right: 50px;
+    float: left;
+    background-color: #ffffff;
+}
+
+.goodslist .box-bd dt>div h2 {
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 38px;
+}
+
+.goodslist .box-bd dt>div p {
+    line-height: 24px;
+    font-size: 14px;
+    color: #7F7F7F;
+}
+
+.goodslist .box-bd dt>div span {
+    display: block;
+    padding-top: 26px;
+    font-size: 24px;
+    color: #FF6700;
+}
+
+.goodslist .box-bd dt>div span i {
+    font-style: normal;
+    font-size: 12px;
+}
+
+.goodslist .box-bd dt>div a {
+    display: block;
+    padding-top: 86px;
+    font-size: 14px;
+    color: #7F7F7F;
+}
+
+.goodslist .box-bd dl {
+    width: 1300px;
+}
+
+.goodslist .box-bd dd {
+    float: left;
+    width: 606px;
+    margin-right: 14px;
+}
+
+.goodslist .box-bd dd img {
+    height: 372px;
+    width: 606px;
+}
+
+.goodslist .box-bd dd .phone-intro {
+    height: 124px;
+    background-color: #FFFFFF;
+    padding-left: 48px;
+    position: relative;
+}
+
+.goodslist .box-bd dd h2 {
+    font-size: 24px;
+    color: #474747;
+    padding-top: 40px;
+}
+
+.goodslist .box-bd dd p {
+    font-size: 14px;
+    color: #919191;
+    line-height: 22px;
+}
+
+.goodslist .box-bd dd span {
+    display: block;
+    font-size: 24px;
+    color: #FF6700;
+    position: absolute;
+    bottom: 38px;
+    right: 50px;
+}
+
+.goodslist .box-bd dd span i {
+    font-style: normal;
+    font-size: 12px;
+}

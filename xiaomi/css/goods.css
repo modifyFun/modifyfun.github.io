@@ -1,0 +1,398 @@
+/* 商品详情头部标题 */
+
+.goodstitle-box {
+    border-bottom: 1px solid #E0E0E0;
+}
+
+.hd-left {
+    height: 66px;
+    line-height: 66px;
+}
+
+.hd-left h3 {
+    font-size: 18px;
+    display: inline-block;
+    font-weight: normal;
+}
+
+.hd-left a,
+.hd-left span {
+    font-size: 12px;
+    color: #616161;
+}
+
+.hd-right {
+    height: 66px;
+    line-height: 66px;
+}
+
+.hd-right a {
+    font-size: 14px;
+    color: #616161;
+}
+
+.hd-right span {
+    font-size: 14px;
+    color: #E5E0E2;
+    padding: 0px 3px;
+    display: inline-block;
+}
+
+
+/* 商品详情头部标题 end*/
+
+
+/* 商品详情内容 begin */
+
+
+/* 登陆提示 */
+
+.goodsinfo-box .tip-login {
+    text-align: center;
+    font-size: 14px;
+    color: #333333;
+    height: 46px;
+    line-height: 46px;
+    background-color: #F7F7F7;
+}
+
+.goodsinfo-box .tip-login a {
+    color: #FF6700;
+}
+
+
+/* 左部商品轮播 */
+
+.phoneimg-box {
+    width: 560px;
+    position: relative;
+}
+
+.phoneimg-box img {
+    width: 560px;
+}
+
+.phoneimg-box .pervious {
+    width: 41px;
+    height: 69px;
+    background: url(../img/arrow.png) no-repeat left center;
+    position: absolute;
+    top: 280px;
+    left: 0px;
+}
+
+.phoneimg-box .next {
+    width: 41px;
+    height: 69px;
+    background: url(../img/arrow.png) no-repeat right center;
+    position: absolute;
+    top: 280px;
+    right: 0px;
+}
+
+.phoneimg-box .pervious:hover,
+.phoneimg-box .next:hover {
+    background-color: #7F7F7F;
+}
+
+.phoneimg-box .bottom-nav {
+    width: 300px;
+    margin: 0px auto;
+    overflow: hidden;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+
+.phoneimg-box .bottom-nav li {
+    width: 50px;
+    height: 2px;
+    float: left;
+    background-color: #CCCCCC;
+    margin-right: 10px;
+}
+
+.phoneimg-box .bottom-nav li.con {
+    background-color: #A3A3A3;
+}
+
+.phoneimg-box .bottom-nav li:hover {
+    width: 50px;
+    height: 2px;
+    float: left;
+    background-color: #A3A3A3;
+}
+
+
+/* 右部商品信息及购买选项 */
+
+.phoneinfo-box {
+    width: 606px;
+    font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+}
+
+.phoneinfo-box h2 {
+    height: 36px;
+    margin-top: 27px;
+    line-height: 36px;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.phoneinfo-box p {
+    font-size: 14px;
+    color: #B0B0B0;
+    line-height: 24px;
+    margin-bottom: 18px;
+}
+
+.phoneinfo-box span {
+    font-size: 14px;
+    color: #FF4A00;
+}
+
+.phoneinfo-box h4 {
+    font-size: 18px;
+    color: #FF4A00;
+    font-weight: 400;
+    margin-top: 18px;
+    margin-bottom: 20px;
+}
+
+
+/* 赠品 */
+
+.phoneinfo-box .gifts {
+    font-size: 14px;
+    padding: 10px 0px;
+    border-top: 1px solid #E0E0E0;
+    border-bottom: 1px solid #E0E0E0;
+}
+
+.phoneinfo-box .gifts p {
+    color: #333333;
+    margin-bottom: 6px;
+}
+
+.phoneinfo-box .gifts p span {
+    width: 80px;
+    height: 25px;
+    display: inline-block;
+    background-color: #FF6700;
+    color: #FFFFFF;
+    text-align: center;
+    margin-right: 10px;
+}
+
+
+/* 地址 */
+
+.phoneinfo-box .location {
+    height: 42px;
+    border: 1px solid #E0E0E0;
+    padding: 30px 0px;
+    background: #FAFAFA url("../img/loacation.png") no-repeat 24px center;
+    text-indent: 50px;
+    margin: 40px 0px;
+}
+
+.phoneinfo-box .location p {
+    color: #333333;
+    line-height: 22px;
+    margin-bottom: 0px;
+}
+
+.phoneinfo-box .location a {
+    color: #FF6700;
+}
+
+
+/* 机型 */
+
+.phoneinfo-box h3 {
+    font-size: 18px;
+    font-weight: normal;
+    margin-top: 30px;
+}
+
+.phoneinfo-box .type-box {
+    width: 606px;
+    overflow: hidden;
+}
+
+.phoneinfo-box .type-box ul {
+    width: 650px;
+}
+
+.phoneinfo-box .type-box ul li {
+    width: 298px;
+    height: 42px;
+    line-height: 42px;
+    text-align: center;
+    font-size: 16px;
+    color: #757575;
+    text-align: center;
+    border: 1px solid #E0E0E0;
+    margin: 16px 6px 0px 0px;
+    float: left;
+    font-weight: 400;
+    color: #B0B0B0;
+    cursor: pointer;
+}
+
+.phoneinfo-box .type-box ul li img {
+    width: 16px;
+    margin-right: 10px;
+}
+
+.phoneinfo-box .type-box ul li span {
+    font-size: 16px;
+    color: #333333;
+    margin-right: 12px;
+    font-weight: 400;
+}
+
+.phoneinfo-box .type-box ul li.con {
+    border: 1px solid #FF6700;
+    color: #757575;
+}
+
+.phoneinfo-box .type-box ul li.con span {
+    color: #FF6700;
+}
+
+.phoneinfo-box h3 a {
+    float: right;
+    font-size: 14px;
+    color: #FF6700;
+}
+
+
+/* 保修、云服务 */
+
+.phoneinfo-box .pro-choose {
+    margin-top: 34px;
+    border-bottom: 1px solid #E0E0E0;
+}
+
+.phoneinfo-box .pro-choose li {
+    border: 1px solid #E0E0E0;
+    border-bottom: none;
+    position: relative;
+}
+
+.phoneinfo-box .pro-choose li .radio {
+    padding-top: 32px;
+    margin-right: 20px;
+    margin-left: 40px;
+}
+
+.phoneinfo-box .pro-choose li label {
+    color: #757575;
+}
+
+.phoneinfo-box .pro-choose li img {
+    width: 50px;
+    margin-left: 26px;
+}
+
+.phoneinfo-box .pro-choose li small {
+    color: #B7B0B0;
+    height: 40px;
+    line-height: 40px;
+}
+
+.phoneinfo-box .pro-choose li>small {
+    position: absolute;
+    bottom: 10px;
+    right: 22px;
+}
+
+
+/* 购物清单 */
+
+.phoneinfo-box .pro-list ul {
+    padding: 30px;
+    margin: 30px 0px 30px 0px;
+    background-color: #F9F9FA;
+}
+
+.phoneinfo-box .pro-list li,
+.phoneinfo-box .pro-list li small {
+    font-size: 14px;
+    color: #616161;
+}
+
+.phoneinfo-box .pro-list li p {
+    font-size: 24px;
+    line-height: 30px;
+    color: #FF6700;
+    padding-top: 20px;
+    margin: 0px;
+}
+
+
+/* 加入购物车，添加喜欢 */
+
+.phoneinfo-box a.shopcar {
+    width: 300px;
+    height: 55px;
+    font-size: 18px;
+    line-height: 55px;
+    text-align: center;
+    display: inline-block;
+    margin-right: 16px;
+    background-color: #FF6700;
+    color: #FFFFFF;
+    margin-bottom: 26px;
+}
+
+.phoneinfo-box a.favor {
+    width: 142px;
+    height: 55px;
+    font-size: 18px;
+    line-height: 55px;
+    text-align: center;
+    display: inline-block;
+    color: #FFFFFF;
+    background-color: #B0B0B0;
+}
+
+.phoneinfo-box ul.support {
+    padding-bottom: 26px;
+}
+
+.phoneinfo-box ul.support li {
+    font-size: 14px;
+    color: #B0B0B0;
+    float: left;
+    text-indent: 26px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    background: url("../img/get.png") no-repeat left center;
+    background-size: 20px;
+}
+
+
+/* 价格说明 */
+
+.price-info {
+    background-color: #F5F5F5;
+    padding-bottom: 48px;
+}
+
+.price-info h2 {
+    height: 80px;
+    line-height: 80px;
+    font-size: 22px;
+    font-weight: normal;
+}
+
+.price-info .container>div {
+    height: 190px;
+    background: url("../img/price-info.jpeg");
+}
+
+
+/* 商品详情内容 end */

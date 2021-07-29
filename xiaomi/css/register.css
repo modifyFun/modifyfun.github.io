@@ -1,0 +1,199 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+li {
+    list-style: none;
+}
+
+
+/* 清除浮动 */
+
+.clearfl:after {
+    content: "";
+    clear: both;
+    display: block;
+    width: 0px;
+    height: 0px;
+    line-height: 0px;
+    visibility: hidden;
+}
+
+.clearfl {
+    zoom: 1;
+}
+
+
+/* 注册最外层盒子 */
+
+.register-box {
+    background-color: #F9F9F9;
+    overflow: hidden;
+}
+
+
+/* 注册内容层盒子 */
+
+.container {
+    width: 334px;
+    padding: 96px 260px 44px 260px;
+    margin: 75px auto 0px auto;
+    background: #ffffff url("../img/logo.png") no-repeat center 0px;
+    background-size: 50px;
+}
+
+
+/* 注册标题 */
+
+h1 {
+    font-size: 30px;
+    font-weight: normal;
+    text-align: center;
+    height: 64px;
+    color: #333333;
+}
+
+
+/* 注册项名称 */
+
+p {
+    margin-top: 9px;
+    line-height: 14px;
+}
+
+
+/* 国家、地区 */
+
+.country-box {
+    width: 334px;
+    margin-top: 10px;
+}
+
+.country-box .country-name {
+    width: 290px;
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid #E8E8E8;
+    float: left;
+    color: #555555;
+    text-indent: 16px;
+    cursor: pointer;
+}
+
+.country-box .country-select {
+    width: 40px;
+    height: 40px;
+    background: url("../img/select-icon.png") no-repeat center center;
+    border: 1px solid #E8E8E8;
+    border-left: none;
+    float: left;
+    cursor: pointer;
+}
+
+.country-box p {
+    float: left;
+    color: #666666;
+    font-size: 14px;
+    padding-bottom: 18px;
+}
+
+
+/* 国家地区下拉框 */
+
+.country-box ul {
+    display: none;
+}
+
+
+/* 电话号码 */
+
+.phone {
+    width: 334px;
+    margin-top: 10px;
+}
+
+.phone .country-code {
+    width: 72px;
+    height: 40px;
+    line-height: 40px;
+    color: #555555;
+    cursor: pointer;
+    border: 1px solid #E8E8E8;
+    float: left;
+    text-indent: 6px;
+    position: relative;
+}
+
+
+/* 三角形 */
+
+.phone .country-code i {
+    border: 6px solid #9D9D9D;
+    border-left: 6px solid #ffffff;
+    border-right: 6px solid #ffffff;
+    border-bottom: 6px solid #ffffff;
+    position: absolute;
+    top: 16px;
+    right: 12px;
+}
+
+.phone .phonenum input {
+    width: 256px;
+    height: 40px;
+    border: 1px solid #E8E8E8;
+    border-left: none;
+    float: left;
+    text-indent: 1em;
+}
+
+.btn {
+    margin-top: 30px;
+    height: 42px;
+    line-height: 42px;
+    text-align: center;
+    font-size: 14px;
+    color: #ffffff;
+    background-color: #FF6700;
+}
+
+.msg {
+    color: #9D9D9D;
+    font-size: 14px;
+    margin-top: 84px;
+    text-align: center;
+}
+
+.msg a {
+    color: #333333;
+    font-size: 14px;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+
+/* 脚部内容 */
+
+.footer {
+    font-size: 14px;
+    color: #757575;
+    text-align: center;
+}
+
+.footer p {
+    margin-bottom: 12px;
+}
+
+.footer a {
+    font-size: 14px;
+    color: #757575;
+}
+
+.footer p span {
+    padding: 0px 10px;
+}
+
+.footer a.checked,
+.footer a:hover {
+    color: #333333;
+}

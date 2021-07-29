@@ -1,0 +1,219 @@
+/* 清除默认样式 */
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+
+/* 清除浮动 */
+
+.clearfl::after {
+    content: "";
+    clear: both;
+    display: block;
+    width: 0px;
+    height: 0px;
+    line-height: 0px;
+    visibility: hidden;
+}
+
+.clearfl {
+    zoom: 1;
+}
+
+.container {
+    width: 1102px;
+    margin: 0px auto;
+}
+
+
+/* logo */
+
+.loginlogo {
+    height: 50px;
+    margin-top: 24px;
+    background: url("../img/mistore_logo.png") no-repeat left center;
+}
+
+
+/* 登陆主体页面左部 */
+
+.bd-left {
+    float: left;
+    width: 752px;
+}
+
+.bd-left a {
+    display: block;
+    height: 100%;
+}
+
+
+/* 登陆功能 */
+
+.bd-right {
+    width: 350px;
+    float: right;
+    padding-top: 80px;
+}
+
+.bd-right .action-select {
+    margin-bottom: 22px;
+}
+
+.bd-right .action-select a,
+.bd-right .action-select a:link,
+.bd-right .action-select a:visited {
+    display: block;
+    float: left;
+    width: 173px;
+    height: 36px;
+    font-size: 24px;
+    color: #666666;
+    text-align: center;
+    line-height: 36px;
+    border-left: 2px solid #e0e0e0;
+}
+
+.bd-right .action-select a.clearborder {
+    border: none;
+}
+
+.bd-right .action-select a.selected {
+    color: #F66600;
+}
+
+.bd-right ul.loginform li input {
+    display: block;
+    width: 350px;
+    height: 48px;
+    font-size: 14px;
+    border: 1px solid #E0E0E0;
+    margin-bottom: 14px;
+    text-indent: 1em;
+}
+
+.bd-right ul.loginform li input.btn {
+    height: 50px;
+    background-color: #FF6700;
+    font-size: 14px;
+    text-align: center;
+    line-height: 50px;
+    text-indent: 0em;
+    color: #FFFFFF;
+    margin: 9px 0px;
+}
+
+.bd-right .loginform>a {
+    font-size: 14px;
+    color: #FF6700;
+    float: left;
+}
+
+.bd-right .loginform .n_links_area {
+    float: right;
+    color: #999999;
+    font-size: 14px;
+}
+
+.bd-right .loginform .n_links_area a {
+    color: #999999;
+    font-size: 14px;
+}
+
+.bd-right .login-icon {
+    height: 36px;
+    line-height: 36px;
+    margin-top: 112px;
+}
+
+.bd-right .login-icon p {
+    display: block;
+    width: 130px;
+    height: 36px;
+    float: left;
+    padding-top: 18px;
+}
+
+.bd-right .login-icon p i {
+    display: block;
+    height: 1px;
+    background-color: #BBBBBB;
+}
+
+.bd-right .login-icon span {
+    display: block;
+    height: 36px;
+    font-size: 14px;
+    float: left;
+    color: #BBBBBB;
+}
+
+.bd-right .login-icon ul {
+    width: 264px;
+    margin: 0 auto;
+}
+
+.bd-right .login-icon ul li {
+    float: left;
+    margin-left: 34px;
+}
+
+.bd-right .login-icon ul li a {
+    display: block;
+    width: 32px;
+    height: 32px;
+}
+
+.bd-right .login-icon ul li.icon1 {
+    background: url("../img/log-ico.png") no-repeat 0px center;
+}
+
+.bd-right .login-icon ul li.icon2 {
+    background: url("../img/log-ico.png") no-repeat -66px center;
+}
+
+.bd-right .login-icon ul li.icon3 {
+    background: url("../img/log-ico.png") no-repeat -129px center;
+}
+
+.bd-right .login-icon ul li.icon4 {
+    background: url("../img/log-ico.png") no-repeat -192px center;
+}
+
+
+/* 脚部内容 */
+
+.footer {
+    margin-top: 174px;
+    font-size: 14px;
+    color: #757575;
+    text-align: center;
+}
+
+.footer p {
+    margin-bottom: 12px;
+}
+
+.footer a {
+    font-size: 14px;
+    color: #757575;
+}
+
+.footer p span {
+    padding: 0px 10px;
+}
+
+.footer a.checked,
+.footer a:hover {
+    color: #333333;
+}
