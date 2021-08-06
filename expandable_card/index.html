@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/reset.css">
+    <title>仿App Store 卡片展开效果</title>
+
+    <style>
+        body {
+            background-color: #333;
+            overflow-x: hidden;
+        }
+
+        body.noscroll {
+            overflow: hidden;
+        }
+
+        .container {
+            width: 480px;
+            background-color: #eee;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 1rem 0;
+        }
+
+        .card {
+            width: 420px;
+            height: 280px;
+            margin-bottom: 20px;
+            background-color: #fff;
+            border-radius: 16px;
+            box-shadow: 0 0 20px 10px rgba(0, 0, 0, .1);
+            transition: .5s all cubic-bezier(0, 1, 0.95, 1.05);
+            cursor: pointer;
+        }
+
+        .card .image img {
+            display: block;
+            border: 0;
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
+
+        }
+
+        .card h3 {
+            margin: 0;
+            padding: 20px 20px;
+            background-color: #fff;
+        }
+
+        .card .wrap-content {
+            height: 0;
+            overflow: hidden;
+        }
+
+        .card .wrap-content .content {
+            padding: 0 20px;
+            line-height: 1.2em;
+            background-color: #fff;
+            overflow: auto;
+        }
+
+        .card.active {
+            transform: translateY(var(--data-scroll-top)) scale(calc(480/420));
+            transform-origin: 50% 0;
+            border-radius: 0;
+            height: 100vh;
+        }
+
+        .card.active h3 {
+            /* padding:16px 20px; */
+        }
+
+        .card.active img {
+            border-radius: 0;
+            height: 220px;
+        }
+
+        .card.active .wrap-content {
+            height: 100vh;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="image">
+                <img src="https://source.unsplash.com/900x600/?nature,fire,1" alt="">
+            </div>
+            <h3>火火火</h3>
+            <div class="wrap-content">
+                <div class="content">
+                    <p>一团火焰从西方来</p>
+                    <p>烧红了天边的云彩</p>
+                    <p>唱着火辣辣的情歌</p>
+                    <p>寻找真爱</p>
+                    <p>一路走来燃烧自我</p>
+                    <p>祝福洒遍每一个角落</p>
+                    <p>火火火</p>
+                    <p>焚烧桃花园林里黄色的花朵</p>
+                    <p>献出真爱的容颜</p>
+                    <p>相濡以沫</p>
+                    <p>一团火焰从西方来</p>
+                    <p>烧尽了人间的冷漠</p>
+                    <p>点燃了希望的火把</p>
+                    <p>实现了智慧的理想</p>
+                    <p>不在迷茫不在彷徨</p>
+                    <p>心的方向自由飞翔</p>
+                    <p>原创：倚窗望雪</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="image">
+                <img src="https://source.unsplash.com/900x600/?nature,fire,2" alt="">
+            </div>
+            <h3>火焰因为孤独而诞生</h3>
+            <div class="wrap-content">
+                <div class="content">
+                    <p>火焰升腾吧!</p>
+                    <p>火焰的舌头说出自己的故事</p>
+                    <p>火焰因为孤独而诞生</p>
+                    <p>内心的火焰.啤酒的滋味是苦的</p>
+                    <p>窗外的风吹得人心头发麻</p>
+                    <p>镜子里的面孔隔绝了,好像影子</p>
+                    <p>在火光中徘徊的灰烬</p>
+                    <p>冰冷的,放弃</p>
+                    <p>无奈的,离开</p>
+                    <p>嗳,火焰你还是熄灭了吧!</p>
+                    <p>火焰的舌头已经讲完了所有的故事</p>
+                    <p>2009-8-15</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="image">
+                <img src="https://source.unsplash.com/900x600/?nature,fire,3" alt="">
+            </div>
+            <h3>火堆</h3>
+            <div class="wrap-content">
+                <div class="content">
+                    <p>有几次,我流连于湖边</p>
+                    <p>夕阳下的火堆</p>
+                    <p>金色的叶子和孩童的嬉笑</p>
+                    <p>时间一点点流淌</p>
+                    <p>乘坐小船</p>
+                    <p>拾起一把莲蓬</p>
+                    <p>佛说净土,我说尘土</p>
+                    <p>有几次,夜空着了火</p>
+                    <p>星星跌落,炸开满池涟漪</p>
+                    <p>生命的困倦再次猛醒</p>
+                    <p>火堆</p>
+                    <p>这被凝望的一双火堆</p>
+                    <p>这破碎的夕阳</p>
+                    <p>被晚风吹落</p>
+                    <p>火堆</p>
+                    <p>你离她有多近</p>
+                    <p>受伤就有多深</p>
+                    <p>火堆</p>
+                    <p>这灼人的爱焰哦!</p>
+                    <p>再没有冤词可以诉讼</p>
+                    <p>再没有希望或者绝望</p>
+                    <p>再没有风和雨</p>
+                    <p>可以阻挡这燃烧的森林</p>
+                    <p>和我的心!</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="image">
+                <img src="https://source.unsplash.com/900x600/?nature,fire,1" alt="">
+            </div>
+            <h3>火火火</h3>
+            <div class="wrap-content">
+                <div class="content">
+                    <p>一团火焰从西方来</p>
+                    <p>烧红了天边的云彩</p>
+                    <p>唱着火辣辣的情歌</p>
+                    <p>寻找真爱</p>
+                    <p>一路走来燃烧自我</p>
+                    <p>祝福洒遍每一个角落</p>
+                    <p>火火火</p>
+                    <p>焚烧桃花园林里黄色的花朵</p>
+                    <p>献出真爱的容颜</p>
+                    <p>相濡以沫</p>
+                    <p>一团火焰从西方来</p>
+                    <p>烧尽了人间的冷漠</p>
+                    <p>点燃了希望的火把</p>
+                    <p>实现了智慧的理想</p>
+                    <p>不在迷茫不在彷徨</p>
+                    <p>心的方向自由飞翔</p>
+                    <p>原创：倚窗望雪</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let cards = document.querySelectorAll(".card");
+        cards.forEach(el => {
+            el.addEventListener("click", function () {
+                //展开卡片
+                this.classList.toggle("active");
+                //移除滚动
+                document.body.classList.toggle("noscroll");
+
+                //计算距离顶部高度，将card移动到顶部
+                let cardScrollTop = this.offsetTop - document.documentElement.scrollTop;
+                this.style.setProperty('--data-scroll-top', cardScrollTop * -1 + "px");
+
+                //计算内容高度
+                let ration = 480 / 420;
+                let contentHeight = (window.innerHeight - this.querySelector(".image").offsetHeight * ration - this.querySelector("h3").offsetHeight * ration) / ration;
+                this.querySelector(".content").style = `height:${contentHeight}px`;
+            });
+        });
+
+    </script>
+</body>
+
+</html>
