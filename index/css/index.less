@@ -5,6 +5,10 @@
 
 }
 @list: sm,md,lg;
+.row-common(){
+    border-radius:4px;
+    box-shadow: 0 0 16px 8px #eee;
+};
 
 // each(@list,{
 //     // @media @{value}{
@@ -80,8 +84,12 @@ each(#media(), .(@v, @k, @i) {
     top: 0px;
     left: 0px;
     z-index: 99;
-    
+    &.active{
+        background-color: rgb(55, 140, 63);
+    }
     .container{
+        padding-top: 10px;
+        padding-bottom: 10px;
         display: flex;
         align-items: center;
         .brand{
@@ -147,7 +155,7 @@ section.page-content{
     }
     .content{
         position: relative;
-        z-index: 100;
+        z-index: 10;
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -160,6 +168,7 @@ section.page-content{
             border-radius: 50%;
             cursor: pointer;
             position: relative;
+            
             &::before{
                 content: "";
                 box-sizing: border-box;
@@ -278,11 +287,10 @@ section.region{
 }
 
 section.about{
-    
-   
     .row{
         padding: 40px;
-        box-shadow: 0 0 16px 8px #eee;
+        .row-common();
+       
         &>div{
             box-sizing: border-box;
             min-height: 250px;
@@ -313,7 +321,61 @@ section.about{
                 font-weight:bolder;
             }
         }
+    }
+}
 
+
+section.skills {
+    
+    h2{
+        text-align: center;
+    }
+    .row{
+        margin-top: 40px;
+        padding: 40px;
+        
+        &.active{
+            animation: skills .4s linear ;
+        }
+        .row-common();
+        .skill-content{
+            box-sizing: border-box;
+            &:nth-child(1){
+                padding-right: 20px;
+            }
+            &:nth-child(2){
+                padding-left: 20px;
+            }
+           
+            .skill-item{
+                padding-top: 20px;
+                h3{
+                   font-size: 16px;
+                   line-height: 18px;
+                   span{
+                       padding-right: 10%;
+                       float: right;
+                   }
+                }
+                .progressbox{
+                   width: 100%;
+                   height: 5px;
+                   margin-top: 10px;
+                   background: rgba(55, 140, 63, 0.2);
+                   position: relative;
+                   div.progress{
+                       width: 10px;
+                       height: 100%;
+                       display: block;
+                       background-color: rgba(55, 140, 63, 1);
+                       position: absolute;
+                       top: 0;
+                       left: 0;
+                       transition:all .6s linear;
+                   }
+                }
+            }
+        }
     }
 }
 
@@ -339,12 +401,23 @@ section.about{
         transform: scale(1.1);
         opacity: 1;
     }
-  
+}
+
+@keyframes skills {
+    from{
+        transform: translateY(100px) scale(.8);
+    }
+    to{
+        transform: translateY(0px) scale(1);
+    }
 }
 @media screen and (max-width: #media[md]){
     .container{
         padding-left: 3vw;
         padding-right: 3vw;
+    }
+    section.region {
+        padding-top: 70px;
     }
     .header{
         .container{
@@ -357,9 +430,16 @@ section.about{
                 width: 100%;
                 right: 0px;
                 top: 100%;
+                z-index: 100;
                 &.md-hiden{
                     display: none;
+                    background: linear-gradient(rgba(55, 140, 63, 1) 0%, rgba(55, 140, 63, .6) 500%);
+                    &.show{
+                        display: block;
+                    }
+                    // background:rgba(55, 140, 63, .6));
                 }
+                
                 ul{
                     li{
                         text-align: center;
@@ -370,12 +450,11 @@ section.about{
             }
         }
     }
-
+    .row{
+        padding: 10px !important; 
+    }
     section.about{
-        padding-top: 70px;
         .row{
-            padding: 10px;
-          
             &>div{
                 box-sizing: border-box;
                 min-height: 250px;
@@ -410,8 +489,18 @@ section.about{
         }
     }
 
-
-
+    section.skills {
+        .row{
+            .skill-content{
+                &:nth-child(1){
+                    padding-right: 0px;
+                }
+                &:nth-child(2){
+                    padding-left: 0px;
+                }
+            }
+        }
+    }
     
 
 }

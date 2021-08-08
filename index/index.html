@@ -17,11 +17,11 @@
             <div class="brand">
                 <a>MYSITE</a>
             </div>
-            <button class="toggle">--</button>
-            <nav class="md-hiden">
+            <button class="toggle" id="navbtn">--</button>
+            <nav class="md-hiden" id="nav">
                 <ul class="clearflx">
-                    <li><a href="#">个人信息</a></li>
-                    <li><a href="#">个人技能</a></li>
+                    <li><a href="#about">个人信息</a></li>
+                    <li><a href="#skills">个人技能</a></li>
                     <li><a href="#">项目经历</a></li>
                     <li><a href="#">校园经历</a></li>
                     <li><a href="#">个人荣誉</a></li>
@@ -31,7 +31,7 @@
     </header>
     <!-- 顶部菜单栏 end-->
     <!-- 头部个人介绍 begin-->
-    <section class="page-content container">
+    <section class="page-content container" id="info">
         <div class="content">
             <div class="head-img">
                 <img src="./img/head.jpg" />
@@ -71,7 +71,7 @@
     </section>
     <!-- 头部个人介绍 end-->
     <!-- 个人信息 begin-->
-    <section class="region about container">
+    <section class="region about container"  id="about">
         <div class="row">
             <div class="intro col-sm-10 col-md-5 col-lg-5">
                 <h3>自我介绍</h3>
@@ -88,7 +88,8 @@
                     <p><span>毕业院校:</span><span>嘉应学院</span></p>
                     <p><span>当前学历:</span><span>全日制本科</span></p>
                     <p><span>学习专业:</span><span>计算机科学与技术</span></p>
-                    <p><span>当前年龄:</span><span>23</span></p>
+                    <p><span>专业绩点:</span><span>4.0</span></p>
+                    <p><span>出生年月:</span><span>1998-02</span></p>
                     <p><span>个人性别:</span><span>男</span></p>
                     <p><span>个人邮箱:</span>www524563@qq.com</span></p>
                 </div>
@@ -97,9 +98,90 @@
     </section>
     <!-- 个人信息 end -->
     <!-- 个人技能 begin-->
-    <section class="region skills container"></section>
+    <section class="region skills container" id="skills">
+        <h2>个人技能 / SKILLS</h2>
+        <div class="row">
+            <div class="skill-content col-sm-10 col-md-5 col-lg-5">
+                <div class="skill-item">
+                    <h3>HTML<span>50%</span> </h3>
+                    <div class="progressbox">
+                        <div class="progress"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <h3>CSS <span>50%</span> </h3>
+                    <div class="progressbox">
+                        <div class="progress"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <h3>JAVASCRIPT <span>50%</span> </h3>
+                    <div class="progressbox">
+                        <div class="progress"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <h3>NODE.JS <span>50%</span> </h3>
+                    <div class="progressbox">
+                        <div class="progress"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <h3>BOOTSTRAPT <span>50%</span> </h3>
+                    <div class="progressbox">
+                        <div class="progress"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <h3>ELEMENTUI <span>50%</span> </h3>
+                    <div class="progressbox">
+                        <div class="progress"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-content col-sm-10 col-md-5 col-lg-5">
+                <div class="skill-item">
+                    <h3>LESS <span>50%</span> </h3>
+                    <div class="progressbox">
+                        <div class="progress"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <h3>SASS <span>50%</span> </h3>
+                    <div class="progressbox">
+                        <div class="progress"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <h3>WEBPACK <span>50%</span> </h3>
+                    <div class="progressbox">
+                        <div class="progress"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <h3>GIT <span>50%</span> </h3>
+                    <div class="progressbox">
+                        <div class="progress"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <h3>VUE.JS <span>50%</span> </h3>
+                    <div class="progressbox">
+                        <div class="progress"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <h3>REACT <span>50%</span> </h3>
+                    <div class="progressbox">
+                        <div class="progress"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- 个人技能 end-->
     <!-- <h1>我的页面</h1> -->
 </body>
-
+<script src="./js/index.js"></script>
 </html>
+
