@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>模仿bilibili轮播图</title>
+    <style>
+        ul,li{
+            margin: 0px;
+            padding:0px;
+            list-style: none;
+        }
+        .wraper{
+            width: 500px;
+            margin: 50px auto;
+            position: relative;
+        }
+        /* banner 图片 */
+        .wraper .banner{
+            width: 500px;
+            max-height: 300px;
+            overflow: hidden;
+        }
+        .wraper .banner ul{
+            width: 4000px;
+    
+            overflow: hidden;
+        }
+        .wraper .banner ul li{
+            width: 500px;
+            float: left;
+        }
+        .wraper .banner ul li a img{
+            width: 500px;
+            height: auto;
+        }
+        /* 小圆点导航 */
+        .wraper .point-index{
+            width: 100px;
+            position: absolute;
+            right: 10px;
+            bottom: 20px;
+
+        }
+        .wraper .point-index ul{
+            width: 100%;
+           
+        }
+        .wraper .point-index ul li{
+            box-sizing: border-box;
+            width: 10px;
+            height: 10px;
+            margin-left: 10px;
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            background-color: #ffffff;
+            float: left;
+            cursor: pointer;
+        }
+        .wraper .point-index ul li:hover{
+            background-color: #00a1d6;
+            transform: scale(1.2);
+        }
+        .wraper .point-index ul li.on{
+            background-image: url("./images/icon_slide_selected.png");
+            background-color: transparent;
+            background-repeat: no-repeat;
+            background-size: cover;
+            transform: scale(1.8);
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="wraper">
+        <!-- 图片容器 -->
+        <div class="banner">
+            <ul>
+                <li>
+                    <a href="#">
+                        <img src="http://www.designerspics.com/wp-content/uploads/2015/01/bench_free_photo.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="http://www.designerspics.com/wp-content/uploads/2014/11/fallen_leaves_free_photo.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="http://www.designerspics.com/wp-content/uploads/2014/11/lone_bird_free_photo.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="https://images.unsplash.com/photo-1559261000-4911b05b2a65?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=751&q=80" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="http://streetwill.co/uploads/post/photo/711/show_YmL4-Vvx8t7nTdGrMLBVAgOT9H1sRdrCjFVkb3yV8c4.JPG" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="http://www.designerspics.com/wp-content/uploads/2015/01/bench_free_photo.jpg" alt="">
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 小圆点图片导航 -->
+        <div class="point-index">
+            <ul>
+                <li index="0" data-id="pointLi" class="on"></li>
+                <li index="1" data-id="pointLi"></li>
+                <li index="2" data-id="pointLi"></li>
+                <li index="3" data-id="pointLi"></li>
+                <li index="4" data-id="pointLi"></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <script >
+    function animate(dom  , option ,num,callback){
+    // .0 控制动画的快速数值 默认10
+    var num = num || 10 ;
+    // 2.0 清除定时器函数
+    clearInterval(dom.timer);
+    // 3.0 执行定时器函数
+    dom.timer = setInterval(function(){
+        // 4.0 定义布尔值 （用于判断所有的属性值是否达到目标值）
+        var bool = true;
+        // 5.0 循环对象
+        for(var k in option){
+            // 6.0  获取传递进来的属性值 （目标位置）
+            var target =parseInt(option[k]);
+            // 7.0 获取元素当前的属性值 ( 当前位置)
+            var current = parseInt(getComputedStyle(dom,null)[k]);
+            // 7.0 计算步长 （数值：10） 越大速度越慢 ，否则反之
+            var speed = (target - current) / num;
+            // 8.0 处理步长 处理小数
+            //  0.3 ~~~    1 
+            // -0.5 ~~~   -1 
+            speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+            // 9.0 判断
+            // 只要存在一个属性没有达到目标值,那么定时器一直在执行
+            if(current != target){
+                // 设置 bool 为false ,定时器不会停
+                bool = false;
+            }
+            // 10.0  设置元素的属性
+            dom.style[k] = current + speed +"px";
+            // console.log("speed:",speed);
+        }
+        //11.0  根据布尔值 清除定时器
+        // 直到所有的属性都达到了目标值 才会停止定时器函数
+        if(bool){
+            //12.0 清除定时器函数
+            clearInterval(dom.timer);
+            // console.log("停止定时器函数")
+            // 13.0 判断是否存在回调函数
+            if(callback)callback();
+        }
+    },30)
+}
+    
+    </script>
+    <script>
+        // 获取元素
+        //var imgUlElement = document.getElementsByClassName("banner")[0].getElementsByTagName("ul")[0];
+        var warper = document.querySelector(".wraper");
+        var imgUlElement = document.querySelector(".banner>ul");
+        var imgLiElements = imgUlElement.querySelectorAll("li");
+        console.log(imgLiElements);
+        var pointUlElement = document.querySelector(".point-index>ul");
+        var pointLiElements =pointUlElement.querySelectorAll("li");
+        var width = imgLiElements[0].offsetWidth;
+        //定时器
+        var timer = null;
+
+        //索引值
+        var index = 0 ; //图片索引
+        var square = 0 ; //圆点导航索引
+        
+
+        //设置导航点
+
+        var setPropagation = function(key){
+            // .0 循环导航点数组
+            for(var i = 0 ; i < pointLiElements.length; i ++){
+                // .0 移除所有导航点的类名
+                pointLiElements[i].classList.remove("on");
+            }
+            // .0 索引值对应的导航点添加类名
+            pointLiElements[key].classList.add("on");
+        }
+
+        //自动播放
+        function autouPlay() {
+            index ++;
+            square ++;
+
+            // 判断导航点索引是否超出
+            square = square > (pointLiElements.length-1)? 0 : square;
+            // 设置导航点
+            setPropagation(square);
+            //轮播图片到达最后一张（即第一张）时
+            if(index > (imgLiElements.length-1)){
+                index = 1 ;
+                //瞬间回到第一张
+                imgUlElement.style.marginLeft = "0px";
+
+            }
+            //执行动画
+            animate( imgUlElement,{marginLeft:-(index*width)},5);
+           
+         }
+
+         //圆点导航点击切换(事件委托)
+        pointUlElement.onclick = function(event){
+            var target =  event.target;
+            var dataId = target.getAttribute("data-id");
+            // 事件判断是否为目标元素
+            if(dataId != "pointLi"){
+                return ;
+            }
+           // console.log(event.target);
+           
+           square = parseInt(target.getAttribute("index"));
+           index =  square;
+
+           //console.log(index);
+            //设置导航圆点样式
+           setPropagation(square);
+           animate(imgUlElement,{marginLeft:-(index*width)},5);
+         }
+
+
+        //  自动播放定时器
+         timer = setInterval (autouPlay,2000);
+
+         //鼠标移入时清除定时器
+         warper.onmouseenter = function(){
+             console.log("on");
+             clearInterval(timer);
+         }
+         //鼠标移出时清除定时器
+         warper.onmouseleave = function () { 
+            console.log("out");
+            timer = setInterval (autouPlay,1500);
+         }
+
+    </script>
+</body>
+</html>
