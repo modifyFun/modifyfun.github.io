@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css3 宇宙星轨动画</title>
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            width: 100%;
+            height: 100vh;
+            background-image: url("https://images.unsplash.com/photo-1531306728370-e2ebd9d7bb99?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1868&q=80");
+            background-size: cover;
+            overflow: hidden;
+        }
+        .galaxy-box{
+            width: 331px;
+            height: 331px;
+            margin: 260px auto;
+            background-image: url("./img/asteroids_meteorids.png");
+            position: relative;
+            animation: move 12s linear infinite both;
+        }
+
+
+        .galaxy-box div.star-box{
+            border-radius: 50%;
+            border:2px solid rgb(73,80,101);
+            position: absolute;
+            left: 50%;
+            top: 50%;
+        }
+        .galaxy-box div.star-box .star{
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translate(-50%,-50%);
+        }
+
+        .galaxy-box div:nth-of-type(1){
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgb(234,157,0);
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+        }
+
+        .galaxy-box div:nth-of-type(2){
+            width: 120px;
+            height: 120px;
+            animation: move 6s linear infinite both;
+        }
+        .galaxy-box div:nth-of-type(2) .star{
+            background-color: rgb(255,242,0);
+        }
+        .galaxy-box div:nth-of-type(3){
+            width: 190px;
+            height: 190px;
+            animation: move 16s linear infinite both;
+        }
+        .galaxy-box div:nth-of-type(3) .star{
+            background-color: rgb(4,34,255);
+        }
+        .galaxy-box div:nth-of-type(4){
+            width: 260px;
+            height: 260px;
+            animation: move 14s linear infinite both;
+        }
+        .galaxy-box div:nth-of-type(4) .star{
+            background-color: rgb(0,133,0);
+        }
+        .galaxy-box div:nth-of-type(5){
+            width: 330px;
+            height: 330px;
+            transform: translate(-50%,-50%);
+        }
+        .galaxy-box div:nth-of-type(5) .star{
+            background-color: rgb(255,167,155);
+        }
+        .galaxy-box div:nth-of-type(6){
+            width: 400px;
+            height: 400px;
+            animation: move 6s linear infinite both;
+        }
+        .galaxy-box div:nth-of-type(6) .star{
+            background-color: rgb(255,167,155);
+        }
+
+       
+        @keyframes move{
+            0%{
+                transform: translate(-50%,-50%) rotateZ(0deg);
+            }
+            100%{
+                transform: translate(-50%,-50%) rotateZ(360deg);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="galaxy-box">
+            <div class="sun"></div>
+            <div class="star-box">
+                <div class="star"></div>
+            </div>
+            <div class="star-box">
+                <div class="star"></div>
+            </div>
+            <div class="star-box">
+                <div class="star"></div>
+            </div>
+            <div class="star-box">
+                <div class="star"></div>
+            </div>
+            <div class="star-box">
+                <div class="star"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
