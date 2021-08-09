@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .container {
+            width: 1000px;
+            padding-top: 20px;
+            display: flex;
+            margin: auto;
+        }
+
+        .left,
+        .right {
+            width: 50%;
+        }
+
+        .left {
+            box-sizing: border-box;
+            padding-right: 50px;
+        }
+
+        .left .search-box {
+
+            padding: 10px 0px;
+        }
+
+        .left .search-box input {
+            box-sizing: border-box;
+            width: 80%;
+            height: 40px;
+            border: 2px solid #009100;
+            border-radius: 10px 0px 0px 10px;
+            border-right: 0;
+            padding-left: 10px;
+            outline: none;
+            vertical-align: top;
+            font-size: 14px;
+        }
+
+        .left .search-box button {
+            box-sizing: border-box;
+            width: 20%;
+            height: 40px;
+            border: 2px solid #009100;
+            border-radius: 0px 10px 10px 0px;
+            background-color: #009100;
+            font-size: 14px;
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        .left ul.list>li {
+            display: flex;
+            height: 110px;
+            padding: 10px 0;
+            border-bottom: 1px solid #ccc;
+            cursor: pointer;
+        }
+
+        .left ul.list>li img {
+            width: 110px;
+            height: 110px;
+        }
+
+        .left ul.list>li .item-content {
+            padding-left: 10px;
+            flex: 1;
+        }
+
+        .left ul.list>li .item-content h2,
+        .right h2 {
+            font-size: 18px;
+            line-height: 18px;
+            padding-bottom: 10px;
+        }
+
+        .left ul.list>li .item-content p {
+            height: 80px;
+            font-size: 12px;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 4;
+            overflow: hidden;
+        }
+
+        .right p {
+            font-size: 16px;
+        }
+
+        .right .right-top {
+            display: flex;
+        }
+
+        .right .right-top>div {
+            width: 50%;
+        }
+
+        .right .right-top .content-pic {
+            box-sizing: border-box;
+            padding-right: 10px;
+        }
+        .right .content {
+            padding-top: 10px;
+        }
+        .right .content img {
+            width: 100%;
+            padding-bottom: 10px;
+            height: auto;
+        }
+
+        .right .content p {
+            font-size: 14px;
+        }
+
+        .right .right-top .material ul li {
+            border-top: 1px solid #ccc;
+            display: flex;
+        }
+
+        .right .right-top .material ul li:last-child {
+            border-bottom: 1px solid #ccc;
+        }
+
+        .right .right-top .material ul li span {
+            font-size: 16px;
+        }
+
+        .right .right-top .material ul li span:nth-child(1) {
+            width: 100px;
+        }
+
+        .right .right-top .material ul li span:nth-child(2) {
+            flex: 1;
+            text-align: center;
+        }
+
+        .right .process {
+            padding-top: 10px;
+        }
+
+        .right .process ul {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .right .process ul li {
+            width: 48%;
+            box-sizing: border-box;
+        }
+
+        .right .process ul li img {
+            width: 80%;
+            height: auto;
+            padding-top: 10px;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="left">
+            <!-- 搜索栏 begin -->
+            <div class="search-box">
+                <input id="search-text" type="text" placeholder="请输入菜品名字"><button id="search-btn">搜索</button>
+            </div>
+            <!-- 搜索栏 end -->
+            <!-- 菜谱列表 begin -->
+            <ul class="list" id="list">
+               
+            </ul>
+            <!-- 菜谱列表 end -->
+        </div>
+        <div class="right">
+            <div class="right-top">
+                <!-- 菜式介绍 begin -->
+                <div class="content-pic" id="content-pic">
+                    <!-- <img src=${item.pic}> -->
+                    
+                </div>
+                 <!-- 菜式介绍 end -->
+                  <!-- 菜式用料 begin -->
+                <div class="material">
+                    <h2>用料</h2>
+                    <ul id="material-list">
+                       
+                    </ul>
+                </div>
+                 <!-- 菜式用料 end -->
+            </div>
+           <div  class="content"  id="content">
+                <h2>介绍</h2>
+                <p>介绍内容</p>
+           </div>
+
+            <div class="process">
+                <h2>做法</h2>
+                  <!-- 菜式做法步骤 begin -->
+                <ul id="process-list">
+                    
+                </ul>
+                 <!-- 菜式做法步骤 end -->
+            </div>
+            
+        </div>
+    </div>
+
+
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        //请求默认参数
+        var options = {
+            type: "get",
+            url: "https://api.binstd.com/recipe/search",
+            data: {
+                keyword: "白菜",
+                num: 10,
+                appkey: "fb53c013abb907e8"
+            },
+            dataType: "jsonp",
+            success: function (res) {
+                var data = res.result.list;
+                rednerList(data);   //渲染列表
+                rednerContent(data, 0); //渲染菜谱详情内容
+                ListEvent(data);    //监听列表事件
+            }
+        }
+
+        //渲染菜谱列表
+        function rednerList(data) {
+            if (!data) {
+                alert("没有查询到结果");
+                return;
+            }
+            html = "";
+            for (var k in data) {
+                var item = data[k];
+                html += `
+                        <li key=${k}>
+                            <img src="${item.pic}">
+                            <div class="item-content">
+                                <h2>${item.name}</h2>
+                                <p>${item.content}</p>
+                            </div>
+                        </li>
+                `;
+            }
+            $("#list").html(html);
+        }
+        //渲染菜谱列表单元详情内容
+        function rednerContent(data, index) {
+
+            var item = data[index];
+            var materialListHtml = "";
+            var processListHtml = "";
+            var contentPic = `<img src=${item.pic}>`;
+            var contentHtml = `
+                    <h2>${item.name}</h2>
+                    <p>${item.content}</p>
+                `;
+
+            for (var materialItem of item.material) {
+
+                materialListHtml += `<li><span>${materialItem.mname}</span> <span>${materialItem.amount}</span> <span>&gt;</span></li>`;
+            }
+
+            for (var k in item.process) {
+                processListHtml += ` 
+                                    <li>
+                                        <p>${+k + 1 + "." + item.process[k].pcontent}</p>
+                                        <img src=${item.process[k].pic}>
+                                    </li>`;
+            }
+            $("#content-pic").html(contentPic);
+            $("#content").html(contentHtml);
+            $("#material-list").html(materialListHtml);
+            $("#process-list").html(processListHtml);
+
+        }
+        //监听菜谱列表事件
+        function ListEvent(data){
+            $("#list li").on("click", function (e){
+                e.preventDefault();
+                e.stopPropagation();
+               var k = $(this).attr("key");
+               if(data && k){   //判断data和key是否设置
+                   rednerContent(data,k);   //渲染菜谱详情内容
+               }
+
+            });
+        }
+        //监听搜索按钮事件
+        $("#search-btn").on("click", function () {
+
+            var text = $("#search-text").val();
+            if (text.length == 0) { //判断文本框输入内容是否为空
+                alert("搜索框内容不能为空");
+                return;
+            }
+            var myOptions = {   //设置搜索参数
+                                keyword: text
+                            }
+            Object.assign(options.data,myOptions);  //合并参数
+            // console.log(options)
+            $.ajax(options);    //发送请求
+        });
+
+        $.ajax(options);
+    </script>
+</body>
+
+</html>
