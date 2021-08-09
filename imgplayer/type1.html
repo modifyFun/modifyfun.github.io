@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>依靠锚点的图片切换</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            width: 100vw;
+            height: 100vh;
+        }
+        .container{
+            width: 100%;
+            height: 100%;
+
+        }
+        .bg{
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        .bg div{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+           
+        }
+        .bg div:nth-child(1){
+            background: url("http://www.designerspics.com/wp-content/uploads/2015/01/bench_free_photo.jpg") no-repeat;
+            background-size: cover;
+        }
+        .bg div:nth-child(2){
+            background: url("http://www.designerspics.com/wp-content/uploads/2014/11/fallen_leaves_free_photo.jpg") no-repeat;
+            background-size: cover;
+        }
+        .bg div:nth-child(3){
+            background: url("http://www.designerspics.com/wp-content/uploads/2014/11/lone_bird_free_photo.jpg") no-repeat;
+            background-size: cover;
+        }
+        .bg div:nth-child(4){
+            background: url("https://images.unsplash.com/photo-1559261000-4911b05b2a65?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=751&q=80") no-repeat;
+            background-size: cover;
+        }
+        .bg div:nth-child(1):target,
+        .bg div:nth-child(2):target,
+        .bg div:nth-child(3):target,
+        .bg div:nth-child(4):target{
+            z-index: 10;
+            animation: show 1s linear ;
+        }
+        .btn{
+            width: 50%;
+            display: flex;
+            position: fixed;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            justify-content: space-evenly;
+            z-index: 100;
+        }
+        .btn a{
+            width: 100px;
+            height: 100px;
+            background-color: #fff;
+            border-radius: 50%;
+        }
+        .btn a:nth-child(1){
+            background: url("http://www.designerspics.com/wp-content/uploads/2015/01/bench_free_photo.jpg") no-repeat;
+            background-size: cover;
+        }
+        .btn a:nth-child(2){
+            background: url("http://www.designerspics.com/wp-content/uploads/2014/11/fallen_leaves_free_photo.jpg") no-repeat;
+            background-size: cover;
+        }
+        .btn a:nth-child(3){
+            background: url("http://www.designerspics.com/wp-content/uploads/2014/11/lone_bird_free_photo.jpg") no-repeat;
+            background-size: cover;
+        }
+        .btn a:nth-child(4){
+            background: url("https://images.unsplash.com/photo-1559261000-4911b05b2a65?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=751&q=80") no-repeat;
+            background-size: cover;
+        }
+
+        @keyframes show {
+            0%{
+                opacity: .5;
+            }
+            100%{
+                opacity: 1;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="bg">
+            <div id="bg1"></div>
+            <div id="bg2"></div>
+            <div id="bg3"></div>
+            <div id="bg4"></div>
+        </div>
+        <div class="btn">
+           <a href="#bg1"></a>
+           <a href="#bg2"></a>
+           <a href="#bg3"></a>
+           <a href="#bg4"></a>
+        
+    </div>
+</body>
+</html>
