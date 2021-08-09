@@ -6,9 +6,16 @@
 }
 @list: sm,md,lg;
 .row-common(){
+    margin-top: 40px;
+    padding: 40px;
     border-radius:4px;
     box-shadow: 0 0 16px 8px #eee;
+
 };
+
+.column-title(){
+    text-align: center;
+}
 
 // each(@list,{
 //     // @media @{value}{
@@ -34,7 +41,7 @@
     visibility:hidden;
     clear: both;
 }
-@col-range:10;
+@col-range:12;
 each(#media(), .(@v, @k, @i) {
     @media (min-width: @v){
        each(range(@col-range), {
@@ -308,7 +315,7 @@ section.about{
             }
         }
         .info{
-            padding-left: 20px;
+            padding-left: 40px;
             p{
                 line-height: 30px;
             }
@@ -328,23 +335,21 @@ section.about{
 section.skills {
     
     h2{
-        text-align: center;
+        .column-title();
     }
     .row{
-        margin-top: 40px;
-        padding: 40px;
-        
+        .row-common();
         &.active{
             animation: skills .4s linear ;
         }
-        .row-common();
+      
         .skill-content{
             box-sizing: border-box;
             &:nth-child(1){
                 padding-right: 20px;
             }
             &:nth-child(2){
-                padding-left: 20px;
+                padding-left: 40px;
             }
            
             .skill-item{
@@ -377,6 +382,42 @@ section.skills {
             }
         }
     }
+}
+
+section.project{
+    h2{
+        .column-title();
+    }
+    .row{
+        .row-common();
+        .project-item{
+            box-sizing: border-box;
+            padding: 20px 20px;
+            max-height: 400px;
+            // background-color: red;
+            font-size: 0;
+            transition:all .4s linear;
+            &:hover{
+                box-shadow: 0 0 20px 4px #ccc;
+                border-radius:4px;
+            }
+            a{
+                display: block;
+               
+            }
+            img{
+                width: 100%;
+                margin-bottom: 16px;
+                border-radius:4px;
+            }
+            h3{
+                font-size: 18px;
+                font-weight: normal;
+            }
+
+        } 
+    }
+   
 }
 
 
@@ -465,6 +506,7 @@ section.skills {
             }
             .intro{
                padding-right: 0px;
+               min-height: auto;
                 p{
                     font-size: 14px;
                     line-height: 1.5em;
@@ -485,7 +527,6 @@ section.skills {
                     font-weight:bolder;
                 }
             }
-    
         }
     }
 

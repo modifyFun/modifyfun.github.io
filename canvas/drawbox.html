@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>画布涂鸦板</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        body{
+            background-color: #eee;
+        }
+        .container{
+            width: 50vw;
+            margin: auto;
+        }
+        canvas {
+            width: 100%;
+            height: 450px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            margin-top: 50px;
+            cursor: none;
+         
+        }
+
+        .info{
+            margin-top: 20px;
+        }
+        .info #colorinfo span{
+            padding:0 10px;
+            line-height: 20px;
+            color: #fff;
+            background-color: #000000; 
+            display: inline-block; 
+            vertical-align:text-bottom;
+        }
+    
+        .info p {
+            line-height: 30px;
+        }
+
+        button,
+        input{
+            box-sizing: border-box;
+        }
+        input[type="number"]{
+            width: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <canvas id="canvas">
+        </canvas>
+        <div>
+            <button>画笔</button>
+            <button>橡皮</button>
+            <button>重置</button>
+            <button>保存</button>
+            <input type="color" name="color" id="color">  
+            <span>笔画大小：</span><input type="number" id="size" value="20"><span>px</span>
+            <span id="location"></span>
+        </div>
+
+        <div class="info" id="info">
+            <h2>画板信息</h2>
+            <p id="mode">当前模式：画笔模式</p>
+            <p id="colorinfo">画笔颜色：<span >#000000</span></p>
+            <p id="sizeinfo">画笔大小：<span >20px</span></p>
+        </div>
+    </div>
+    
+
+    <script>
+        var infoEl = document.querySelector("#info"); 
+        var modeEl = infoEl.querySelector("#mode");
+        var colorEl = infoEl.querySelector("#colorinfo span");
+        var sizeEl = infoEl.querySelector("#sizeinfo span");
+        var color = document.querySelector("#color");
+        var sizeInput = document.querySelector("#size");
+        var locat = document.querySelector("#location");
+
+        var canvas = document.querySelector("#canvas");
+        var context = canvas.getContext("2d");
+        var buttons = document.querySelectorAll("button");
+        var isDown = false;
+        var drawMode = 1;
+        // var startPoint = []; //开始的位置
+        var stepClear=1;
+        var fillcolor = "#000000";
+        var radius =10;
+
+        var width = canvas.offsetWidth;
+        var height = canvas.offsetHeight;
+        canvas.width = width;
+        canvas.height = height;
+        var imgData = context.getImageData(0, 0, width, height);
+
+        //鼠标移动
+        canvas.onmousemove = function (e) {
+            if (!isDown){
+                context.putImageData(imgData,0,0);  //清除上一次移动的鼠标指示点
+                context.beginPath();
+                context.fillStyle= fillcolor;    //填充颜色
+                context.arc(e.offsetX,e.offsetY,radius,0,2*Math.PI);
+                context.fill();
+                context.closePath();
+                locat.innerText=`x:${e.offsetX},y:${e.offsetY}`;
+                locat.style= "padding-left:50px";
+                return ;
+            }
+            if (drawMode == 1) {
+                context.lineTo(e.offsetX, e.offsetY);
+                context.lineWidth = radius*2;
+                context.strokeStyle = fillcolor;
+                context.stroke();
+
+                // context.beginPath();
+                // context.fillStyle= fillcolor;    //填充颜色
+                // context.arc(e.offsetX,e.offsetY,radius,0,2*Math.PI);
+                // context.fill();
+                // context.closePath();
+
+                
+            } else if (drawMode == 2) {
+                context.clearRect(e.offsetX, e.offsetY, radius*2, radius*2);
+                // clearArc(e.offsetX, e.offsetY,radius);
+            }
+
+        }
+
+        //鼠标按下
+        canvas.onmousedown = function (e) {
+
+            if (!isDown) {
+                isDown = true;
+                context.putImageData(imgData,0,0); //清除鼠标指示点
+                context.beginPath();
+                context.moveTo(e.offsetX, e.offsetY);
+                // startPoint.push({x:e.offsetX,y:e.offsetY}); //保存起始点
+            }
+        }
+
+        //移出画布后鼠标才抬起
+        window.onmouseup = function(){ 
+            isDown = false;
+        }
+        //鼠标抬起
+        canvas.onmouseup = function () {
+
+            stepClear=1;
+            imgData = context.getImageData(0, 0, width, height); //保存页面
+            isDown = false;
+            
+        }
+        // 鼠标移出画布
+        canvas.onmouseout = function (e) {
+
+            if(isDown){     
+                imgData = context.getImageData(0, 0, width, height);//按下鼠标移出时才保存画面
+            }
+           context.beginPath();
+        }
+      
+
+        buttons[0].onclick = function () {  //画笔模式
+            drawMode = 1;
+            modeEl.innerText = "当前模式：画笔模式";
+        }
+
+        buttons[1].onclick = function () {  //橡皮模式
+            drawMode = 2;
+            modeEl.innerText = "当前模式：橡皮擦模式";
+        }
+
+      
+
+        buttons[2].onclick = function () {  //重置
+            context.clearRect(0, 0, width, height);
+            drawMode = 1;
+            imgData = context.getImageData(0, 0, width, height);
+        }
+
+        buttons[3].onclick = function () {  //保存
+            context.save();
+            console.log(canvas.toDataURL("image/png"));
+            exportCanvasAsPNG(canvas, (new Date()).getTime())
+            // window.open(canvas.toDataURL("image/png"));
+        }
+
+        //颜色
+        color.onchange = function(){
+            // console.log(this.value)
+            fillcolor = this.value;
+            colorEl.style.background = fillcolor;
+            colorEl.innerText = fillcolor;
+        }
+        sizeInput.onchange = function(){
+            radius = Number.parseInt(this.value)/2;
+            sizeEl.innerText(this.value+"px") 
+        }
+
+        function exportCanvasAsPNG(canvasElement, fileName) {
+
+            var MIME_TYPE = "image/png";
+
+            var imgURL = canvasElement.toDataURL(MIME_TYPE);
+
+            var dlLink = document.createElement('a');
+            dlLink.download = fileName;
+            dlLink.href = imgURL;
+            dlLink.dataset.downloadurl = [MIME_TYPE, dlLink.download, dlLink.href].join(':');
+
+            document.body.appendChild(dlLink);
+            dlLink.click();
+            document.body.removeChild(dlLink);
+        }
+
+        //清除圆形
+        function clearArc(x,y,radius){
+				var calcWidth=radius-stepClear;
+				var calcHeight=Math.sqrt(radius*radius-calcWidth*calcWidth);
+				
+				var posX=x-calcWidth;
+				var posY=y-calcHeight;
+				
+				var widthX=2*calcWidth;
+				var heightY=2*calcHeight;
+				
+				if(stepClear<=(radius+10)){
+					context.clearRect(posX,posY,widthX,heightY);
+					stepClear+=1;
+					clearArc(x,y,radius);
+				}
+		}
+    </script>
+</body>
+
+</html>

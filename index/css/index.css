@@ -12,126 +12,150 @@
 }
 @media (min-width: 768px) {
   .col-sm-1 {
-    width: 10%;
+    width: 8.33333333%;
     float: left;
   }
   .col-sm-2 {
-    width: 20%;
+    width: 16.66666667%;
     float: left;
   }
   .col-sm-3 {
-    width: 30%;
+    width: 25%;
     float: left;
   }
   .col-sm-4 {
-    width: 40%;
+    width: 33.33333333%;
     float: left;
   }
   .col-sm-5 {
-    width: 50%;
+    width: 41.66666667%;
     float: left;
   }
   .col-sm-6 {
-    width: 60%;
+    width: 50%;
     float: left;
   }
   .col-sm-7 {
-    width: 70%;
+    width: 58.33333333%;
     float: left;
   }
   .col-sm-8 {
-    width: 80%;
+    width: 66.66666667%;
     float: left;
   }
   .col-sm-9 {
-    width: 90%;
+    width: 75%;
     float: left;
   }
   .col-sm-10 {
+    width: 83.33333333%;
+    float: left;
+  }
+  .col-sm-11 {
+    width: 91.66666667%;
+    float: left;
+  }
+  .col-sm-12 {
     width: 100%;
     float: left;
   }
 }
 @media (min-width: 992px) {
   .col-md-1 {
-    width: 10%;
+    width: 8.33333333%;
     float: left;
   }
   .col-md-2 {
-    width: 20%;
+    width: 16.66666667%;
     float: left;
   }
   .col-md-3 {
-    width: 30%;
+    width: 25%;
     float: left;
   }
   .col-md-4 {
-    width: 40%;
+    width: 33.33333333%;
     float: left;
   }
   .col-md-5 {
-    width: 50%;
+    width: 41.66666667%;
     float: left;
   }
   .col-md-6 {
-    width: 60%;
+    width: 50%;
     float: left;
   }
   .col-md-7 {
-    width: 70%;
+    width: 58.33333333%;
     float: left;
   }
   .col-md-8 {
-    width: 80%;
+    width: 66.66666667%;
     float: left;
   }
   .col-md-9 {
-    width: 90%;
+    width: 75%;
     float: left;
   }
   .col-md-10 {
+    width: 83.33333333%;
+    float: left;
+  }
+  .col-md-11 {
+    width: 91.66666667%;
+    float: left;
+  }
+  .col-md-12 {
     width: 100%;
     float: left;
   }
 }
 @media (min-width: 1200px) {
   .col-lg-1 {
-    width: 10%;
+    width: 8.33333333%;
     float: left;
   }
   .col-lg-2 {
-    width: 20%;
+    width: 16.66666667%;
     float: left;
   }
   .col-lg-3 {
-    width: 30%;
+    width: 25%;
     float: left;
   }
   .col-lg-4 {
-    width: 40%;
+    width: 33.33333333%;
     float: left;
   }
   .col-lg-5 {
-    width: 50%;
+    width: 41.66666667%;
     float: left;
   }
   .col-lg-6 {
-    width: 60%;
+    width: 50%;
     float: left;
   }
   .col-lg-7 {
-    width: 70%;
+    width: 58.33333333%;
     float: left;
   }
   .col-lg-8 {
-    width: 80%;
+    width: 66.66666667%;
     float: left;
   }
   .col-lg-9 {
-    width: 90%;
+    width: 75%;
     float: left;
   }
   .col-lg-10 {
+    width: 83.33333333%;
+    float: left;
+  }
+  .col-lg-11 {
+    width: 91.66666667%;
+    float: left;
+  }
+  .col-lg-12 {
     width: 100%;
     float: left;
   }
@@ -352,6 +376,7 @@ section.region {
   padding-top: 100px;
 }
 section.about .row {
+  margin-top: 40px;
   padding: 40px;
   border-radius: 4px;
   box-shadow: 0 0 16px 8px #eee;
@@ -373,7 +398,7 @@ section.about .row .intro p {
   text-indent: 2em;
 }
 section.about .row .info {
-  padding-left: 20px;
+  padding-left: 40px;
 }
 section.about .row .info p {
   line-height: 30px;
@@ -405,7 +430,7 @@ section.skills .row .skill-content:nth-child(1) {
   padding-right: 20px;
 }
 section.skills .row .skill-content:nth-child(2) {
-  padding-left: 20px;
+  padding-left: 40px;
 }
 section.skills .row .skill-content .skill-item {
   padding-top: 20px;
@@ -434,6 +459,38 @@ section.skills .row .skill-content .skill-item .progressbox div.progress {
   top: 0;
   left: 0;
   transition: all 0.6s linear;
+}
+section.project h2 {
+  text-align: center;
+}
+section.project .row {
+  margin-top: 40px;
+  padding: 40px;
+  border-radius: 4px;
+  box-shadow: 0 0 16px 8px #eee;
+}
+section.project .row .project-item {
+  box-sizing: border-box;
+  padding: 20px 20px;
+  max-height: 400px;
+  font-size: 0;
+  transition: all 0.4s linear;
+}
+section.project .row .project-item:hover {
+  box-shadow: 0 0 20px 4px #ccc;
+  border-radius: 4px;
+}
+section.project .row .project-item a {
+  display: block;
+}
+section.project .row .project-item img {
+  width: 100%;
+  margin-bottom: 16px;
+  border-radius: 4px;
+}
+section.project .row .project-item h3 {
+  font-size: 18px;
+  font-weight: normal;
 }
 @keyframes headanim {
   0% {
@@ -510,6 +567,7 @@ section.skills .row .skill-content .skill-item .progressbox div.progress {
   }
   section.about .row .intro {
     padding-right: 0px;
+    min-height: auto;
   }
   section.about .row .intro p {
     font-size: 14px;
