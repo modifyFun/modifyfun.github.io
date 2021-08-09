@@ -7,6 +7,7 @@
 
 body {
     font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+    background-color: #f5f5f5;
 }
 
 
@@ -54,6 +55,7 @@ li {
 .container {
     width: 1226px;
     margin: 0 auto;
+   
 }
 
 
@@ -147,7 +149,8 @@ li {
     width: 60px;
     height: 60px;
     display: block;
-    background: url("../img/logo.png") no-repeat center center;
+    background: url("https://s02.mifile.cn/assets/static/image/logo-mi2.png") no-repeat center center;
+    background-size: contain;
 }
 
 .head-nav ul li {
@@ -270,8 +273,8 @@ li {
 /* 头部服务 begin*/
 
 .footer-service {
-    height: 72px;
-    padding-top: 26px;
+    
+    padding: 26px 0;
 }
 
 .footer-service li.clearborder {

@@ -3,7 +3,9 @@
 .logo {
     width: 236px;
     height: 60px;
+   
 }
+
 
 
 /* 分类导航、图片轮播 */
@@ -387,9 +389,15 @@
 .bd-box ul.right-box li {
     margin-left: 14px;
     float: left;
+   
 }
-
-
+.bd-box ul>li{
+    transition: all .5s linear;
+}
+.bd-box ul>li:hover{
+    box-shadow: 0 0 10px #E0E0E0;
+    transform: translateY(-10px);
+}
 /* 右部每个盒子的字体样式 */
 
 .bd-box ul.right-box li a {
