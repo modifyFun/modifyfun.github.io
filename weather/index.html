@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .clearfl::after {
+            content: "";
+            width: 0;
+            height: 0;
+            clear: both;
+        }
+
+        .container {
+
+            margin: 50px auto;
+        }
+
+        .container h2 {
+            text-align: center;
+        }
+
+        .container .form {
+            padding-top: 20px;
+            margin: 0 auto;
+            width: 500px;
+            font-size: 0;
+        }
+
+        .container .form input[type="text"] {
+            box-sizing: border-box;
+            outline: none;
+            border: 2px solid #87ceeb;
+            border-right: 0;
+            width: 70%;
+            height: 30px;
+            text-indent: 1em;
+
+        }
+
+        .container .form button {
+            box-sizing: border-box;
+            vertical-align: top;
+            background-color: #87ceeb;
+            border: 0;
+            width: 30%;
+            height: 30px;
+            cursor: pointer;
+        }
+
+        .container .form .hot-city {
+            padding-top: 20px;
+            font-size: 16px;
+        }
+        
+
+        .container .form .hot-city .city-list {
+            display: inline-block;
+            vertical-align: text-top;
+            overflow: hidden;
+        }
+
+        .container .form .hot-city .city-list li:first-child {
+            padding-left: 10px;
+        }
+
+        .container .form .hot-city .city-list li {
+            float: left;
+            padding-right: 10px;
+            color: #a594a6;
+            cursor: pointer;
+        }
+
+        .container .form .hot-city .rand-city-btn{
+            cursor: pointer;
+        }
+
+        .container .weather {
+            padding-top: 30px;
+        }
+
+        .container .weather ul {
+            display: flex;
+            justify-content: center;
+
+        }
+
+        .container .weather ul li {
+            border-right: 1px solid #f0f0f0;
+            padding: 10px;
+            font-size: 14px;
+            text-align: center;
+            float: left;
+
+        }
+
+        .container .weather ul li:last-child {
+            border-right: 0;
+        }
+
+        .container .weather ul li p:nth-child(2),
+        .container .weather ul li p:nth-child(3) {
+            color: #ffa500;
+        }
+
+        .container .weather ul li p:nth-child(4) {
+            color: #aaaaaa;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>天气预报</h2>
+        <div class="form">
+            <input id="search-text" type="text">
+            <button id="search-bth">搜索</button>
+            <div class="hot-city">
+                <span>热门城市:</span>
+                <ul class="city-list clearfl" id="city-list">
+                    <li>广州</li>
+                    <li>深圳</li>
+                    <li>上海</li>
+                    <li>北京</li>
+                    <li>苏州</li>
+                    <li>杭州</li>
+                    <li>成都</li>
+                </ul>
+                <span class="rand-city-btn" id="rand-city">
+                    换一换
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
+                        <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
+                    </svg>
+                </span>
+            </div>
+        </div>
+
+        <div class="weather">
+            <ul id="weather-list" class="clearfl">
+                <li>
+                    <img src="./images/baoxue.png" alt="">
+                    <p>雷阵雨</p>
+                    <p>最低气温12~123</p>
+                    <p>201111</p>
+                    <p>北风</p>
+                    <p>21222</p>
+                </li>
+                <li>
+                    <img src="./images/baoxue.png" alt="">
+                    <p>雷阵雨</p>
+                    <p>最低气温12~123</p>
+                    <p>201111</p>
+                    <p>北风</p>
+                    <p>21222</p>
+                </li>
+                <li>
+                    <img src="./images/baoxue.png" alt="">
+                    <p>雷阵雨</p>
+                    <p>最低气温12~123</p>
+                    <p>201111</p>
+                    <p>北风</p>
+                    <p>21222</p>
+                </li>
+                <li>
+                    <img src="./images/baoxue.png" alt="">
+                    <p>雷阵雨</p>
+                    <p>最低气温12~123</p>
+                    <p>201111</p>
+                    <p>北风</p>
+                    <p>21222</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+        var arrCityName = [ "北京","上海","广州","深圳","苏州","大连","重庆","杭州","无锡","天津","佛山","宁波","南京","成都","东莞","武汉","青岛","沈阳","烟台","唐山","济南","哈尔滨","石家庄","郑州","泉州","温州","长沙","南通","长春","潍坊","绍兴","福州","淄博","大庆","常州","台州","济宁","东营","西安","徐州","临沂","威海","嘉兴","邯郸","洛阳","沧州","金华","昆明","南阳","保定" ];
+
+        //ajax 默认参数
+        var options = {
+            type: "get",
+            url: "http://api.tianapi.com/txapi/tianqi/index",
+            data: {
+                city: $("#city-list li:first-child").text(),
+                key: "57559967501037124f4f2450e1c7cd2e",
+            },
+            success: function (res) {
+                console.log(res.newslist);
+                var data = res.newslist;
+                renderWeather(data);
+
+            }
+        }
+
+        //渲染 天气列表
+        function renderWeather(data) {
+            html = "";
+            $("#search-text").val(options.data.city); //将当前城市显示到搜索框
+            for (var val of data) {
+                html += `
+                        <li>
+                            <img src="./images/${val.weatherimg}" alt="">
+                            <p>${val.weather}</p>
+                            <p>最低气温${val.lowest}~最高气温${val.highest}</p>
+                            <p>${val.date}${val.week}</p>
+                            <p>${val.wind}</p>
+                            <p>${val.windsc}</p>
+                        </li>`;
+            }
+            $("#weather-list").html(html);  
+        }
+
+        //渲染热门城市列表
+        function renderHotCity(cityArr){
+            var html = "";
+            for(var city of cityArr){
+                html += ` <li>${city}</li>`;
+            }
+            $("#city-list").html(html);
+        }
+
+
+        //搜索按钮点击监听
+        $("#search-bth").on("click", function () {
+            var city = $("#search-text").val();
+            if (city.length == 0) {
+                alert("输入框不能为空");
+                return;
+            }
+            Object.assign(options.data, {city: city});
+            // console.log(options);
+            $.ajax(options);
+        });
+
+        //随机热门城市列表更换按钮点击监听
+        $("#rand-city").on("click",function(){
+            var cityArr = [];
+           while(cityArr.length < 7){
+                var rand = Math.floor(Math.random()*arrCityName.length);
+                var isHas = false;
+                // for(var i=0; i< cityArr.length;i++){
+                //     if(cityArr[i] == arrCityName[rand]){
+                //         isHas = true;
+                //     }
+                // }
+                if($.inArray(arrCityName[rand],cityArr) != -1 ){
+                    continue;
+                }
+                cityArr.push(arrCityName[rand]);
+            }
+            // console.log( cityArr);
+            renderHotCity(cityArr);
+            Object.assign(options.data, { city:cityArr[0] });
+            $.ajax(options);
+        });
+        
+
+        // 城市列表 城市点击监听
+        $("#city-list").on("click",function(e){
+            Object.assign(options.data, { city:$(e.target).text() });
+            $.ajax(options);
+        });
+
+        $.ajax(options);
+    </script>
+</body>
+
+</html>

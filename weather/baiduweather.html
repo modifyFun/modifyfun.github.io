@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body,
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+        }
+
+        .weather-box {
+            width: 800px;
+            padding: 20px;
+            border: 1px solid #cccccc;
+            background-color: rgb(76, 91, 104);
+            margin: 0 auto;
+        }
+
+        .weather-box .date {
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .weather-box ul {
+            list-style: none;
+            overflow: hidden;
+            color: #ffffff;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .weather-box ul li {
+            padding: 10px;
+            border-right: 1px solid #ffffff;
+            float: left;
+        }
+
+        /* .weather-box ul li:nth-child(1) {} */
+
+        .weather-box ul li .weather-img {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto;
+            background-image: url("./images/7.png");
+            background-repeat: no-repeat;
+        }
+
+        .weather-box ul li .weather-detail div {
+            margin-top: 12px;
+        }
+
+        .weather-box ul li .weather-info {
+            font-size: 0;
+        }
+
+        .weather-box ul li .weather-info span {
+            display: inline-block;
+            width: 90px;
+            font-size: 50px;
+            text-align: right;
+        }
+
+        .weather-box ul li .weather-info span i {
+            display: block;
+            font-size: 16px;
+            font-style: normal;
+            text-align: left;
+            text-indent: 6px;
+        }
+
+        /* .weather-box ul li .temp-info {}
+
+        .weather-box ul li .weather-info2 {} */
+
+        .weather-box ul li .winddirect-info {
+            font-size: 12px;
+        }
+
+        .weather-box ul li .ivalue span {
+
+            padding: 4px;
+            background-color: #40C057;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="weather-box">
+        <!-- 日期 -->
+        <div class="date">
+            <span></span>
+        </div>
+        <!-- 天气列表 -->
+        <ul>
+            <li>
+                <div class="weather-img"></div>
+                <div class="weather-detail">
+                    <div class="weather-info">
+                        <span class="temp">30</span>
+                        <span>
+                            <i>℃</i>
+                            <i>阴天</i>
+                        </span>
+                    </div>
+                    <div class="temp-info">
+                        <span>36~30℃</span>
+                    </div>
+                    <div class="weather-info2">
+                        <span>阴天</span>
+                    </div>
+                    <div class="winddirect-info">
+                        <span>东南风1级</span>
+                    </div>
+                    <div class="ivalue">
+                        <span>优良</span>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="weather-date">
+                    <p>周五</p>
+                    <p>2020-08-01</p>
+                </div>
+                <div class="weather-img"></div>
+                <div class="weather-detail">
+                    <div class="temp-info">
+                        <span>36~30℃</span>
+                    </div>
+                    <div class="weather-info2">
+                        <span>阴天</span>
+                    </div>
+                    <div class="winddirect-info">
+                        <span>东南风1级</span>
+                    </div>
+                    <div class="ivalue">
+                        <span>优良</span>
+                    </div>
+                </div>
+            </li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+
+    <script>
+
+        $.ajax({
+            url: 'https://api.jisuapi.com/weather/query?appkey=83f6895a1b9d1913&city=广州',
+            type: "get",
+            dataType: "jsonp",
+            success: function (res) {
+                var data = res;
+                readerData(data);
+
+            }
+        })
+
+
+        function readerData(data) {
+
+            $(".date span").text(data.result.date+"  "+ data.result.week);
+            html = "";
+
+            var daily = data.result.daily;
+
+              
+                var img = data.result.img > 10 ? 8 : data.result.img;
+
+                html += '<li>';
+                html += '    <div class="weather-img" style = "background-image: url(./images/'+img+'.png)"></div>';
+                html += '    <div class="weather-detail">';
+                html += '        <div class="weather-info">';
+                html += '            <span class="temp">' + data.result.temp + '</span>';
+                html += '            <span>';
+                html += '                <i>℃</i>';
+                html += '                <i>'+ data.result.weather+'(实时)</i>';
+                html += '            </span>';
+                html += '        </div>';
+                html += '        <div class="temp-info">';
+                html += '            <span>'+data.result.templow+'~'+data.result.temphigh+'℃</span>';
+                html += '        </div>';
+                html += '        <div class="weather-info2">';
+                html += '            <span>'+data.result.weather+'</span>';
+                html += '        </div>';
+                html += '        <div class="winddirect-info">';
+                html += '            <span>'+data.result.winddirect+'</span>';
+                html += '        </div>';
+                html += '        <div class="ivalue">';
+                html += '            <span>'+data.result.aqi.quality+'</span>';
+                html += '        </div>';
+                html += '    </div>';
+                html += '</li>';
+            
+                    
+            for (var i = 1; i <= 5; i++) {
+               // console.log(daily)
+                
+                html += '<li>';
+                html += '    <div class="weather-date" >';
+                html += '        <p>'+daily[i].week+'</p>';
+                html += '        <p>'+daily[i].date+'</p>';
+                html += '    </div>';
+                html += '    <div class="weather-img" style ="background-image: url(./images/'+(daily[i].day.img > 10 ? 2 : daily[i].day.img) +'.png)"></div>';
+                html += '    <div class="weather-detail">';
+                html += '        <div class="temp-info">';
+                html += '            <span>'+daily[i].night.templow+'~'+daily[i].day.temphigh+'℃</span>';
+                html += '        </div>';
+                html += '        <div class="weather-info2">';
+                html += '            <span>'+daily[i].day.weather+'</span>';
+                html += '        </div>';
+                html += '        <div class="winddirect-info">';
+                html += '            <span>'+daily[i].day.winddirect+'</span>';
+                html += '        </div>';
+                html += '        <div class="ivalue">';
+                html += '            <span>优</span>';
+                html += '        </div>';
+                html += '    </div>';
+                html += '</li>';
+        
+            }
+
+            $(".weather-box ul").html(html);
+        }
+        
+    </script>
+</body>
+
+</html>
