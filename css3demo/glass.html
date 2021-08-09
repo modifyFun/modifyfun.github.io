@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>放大镜</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        .wrapper {
+            width: 1200px;
+            margin: 100px auto;
+        }
+        .left {
+            width: 350px;
+            height: 350px;
+            background-color: #ccc;
+            float: left;
+            border: 1px solid #ccc;
+        }
+        .left .small {
+            width: 350px;
+            height: 350px;
+            background-image: url(./img/small.jpg);
+
+            /* 相对定位 */
+            position: relative;
+        }
+        .left .mask {
+            width: 175px;
+            height:175px;
+            background-color: yellow;
+            opacity: 0.5;
+            cursor: move;
+            display: none;
+
+            /* 绝对定位 */
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .right {
+            width: 400px;
+            height: 400px;
+            overflow: hidden;
+            float: left;
+            margin-left: 20px;
+            border: 1px solid #ccc;
+            display: none;
+        }
+        .right .big {
+            width: 400px;
+            height: 400px;
+            position: relative;
+        }
+        .right .big img {
+            width: 800px;
+            height: 800px;
+            display: block;
+            position: absolute;
+            left: 0px;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <div class="left">
+            <!-- 小盒子 -->
+            <div class="small">
+                <!-- 遮罩层 -->
+                <div class="mask"></div>
+            </div>
+        </div>
+
+
+        <div class="right">
+            <!-- 大盒子 -->
+            <div class="big">
+                <!--  大图片 -->
+                <img class="big-img" src="./img/big.jpg" alt="">
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+      
+         var left_el = document.getElementsByClassName("left")[0];
+         var mask_el = document.getElementsByClassName("mask")[0];
+         var right_el = document.getElementsByClassName("right")[0];
+         var bigImg_el = document.getElementsByClassName("big-img")[0];
+
+     
+        //显示元素
+        var show = function(dom){
+            dom.style.display = "block";
+        }
+        //隐藏元素
+        var hide = function(dom){
+            dom.style.display = "none";
+        }
+       
+        // 鼠标移入左边小盒子
+        left_el.onmouseenter = left_el.onmouseover =  function(){
+            //显示遮罩层
+            show(mask_el);
+            //显示右边大盒子
+            show(right_el);
+        }
+        //鼠标移出左边小盒子
+        left_el.onmouseleave = left_el.onmouseout = function(){
+            //隐藏遮罩层
+            hide(mask_el);
+            //隐藏右边大盒子
+            hide(right_el);
+        }
+
+        // 鼠标在小盒子上移动，改变遮罩层位置
+        // 改变遮罩层元素的left和top属性
+        left_el.onmousemove = function(event){
+          
+            // 鼠标在页面的坐标 - 元素在页面的坐标 = 遮罩层在小盒子中的坐标
+            var x = event.pageX - left_el.offsetLeft - mask_el.offsetWidth / 2  ;
+            var y = event.pageY -left_el.offsetTop - mask_el.offsetHeight / 2 ;
+
+            // 计算遮罩层在小盒子中的移动最大值
+            var mX  =  left_el.offsetWidth - mask_el.offsetWidth;
+            var mY  =  left_el.offsetHeight - mask_el.offsetHeight ;
+
+          
+            // 往左移动最小值
+            if(x < 0 ){
+                x = 0;
+            }
+            // 往右移动最大值
+            if(x > mX){
+                x = mX;
+            }
+            // 往上移动最小值
+            if(y < 0 ){
+                y = 0 ;
+            }
+            // 往下移动最大值
+            if(y > mY ){
+                y = mY;
+            }
+
+            //设置遮罩层的位置
+            mask_el.style.left = x +"px";
+            mask_el.style.top = y +"px";
+
+            //计算大图片的位置
+            
+            // 大图片可移动的最大值
+            var bigMX = right_el.offsetWidth - bigImg_el.offsetWidth ;
+            var bigMY = right_el.offsetHeight - bigImg_el.offsetHeight ;
+
+            // 计算遮罩层在小盒子中的位置的比例
+            var demoX  = x / mX ;
+            var demoY  =  y / mY ;
+
+            // 计算出大图片的位置
+            bigImg_el.style.left = demoX * bigMX + "px";
+            bigImg_el.style.top = demoY * bigMY+ "px";
+        }
+
+       
+    </script>
+
+
+    
+</body>
+</html>
