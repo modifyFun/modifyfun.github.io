@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/reset.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <title>模仿苹果官网airpods滚动动画</title>
+</head>
+<body>
+    <section class="airpods-section" id="airpods-section">
+        <div class="airpods-container">
+            <canvas class="airpods" id="airpods" width="1158" height="770">
+
+            </canvas>
+        </div>
+        <div class="dec-container">
+            <div class="dec">
+                <div>
+                    <p>AirPods Pro</p>
+                </div>
+                <div>
+                    <p>主动降噪,<br/>声声入耳更沉浸。</p>
+                </div>
+                <div>
+                    <p>通透模式,听到周围的声音。</p>
+                </div>
+                <div>
+                    <p>可选耳塞尺寸,<br/>一直戴着都舒服。</p>
+                </div>
+                <div>
+                    <p>妙得不同凡响。</p>
+                </div>
+                <!-- <img src="https://www.apple.com.cn/105/media/us/airpods-pro/2019/1299e2f5_9206_4470_b28e_08307a42f19b/anim/sequence/large/01-hero-lightpass/0000.jpg" alt=""> -->
+            </div>
+        </div>
+    </section>
+
+    <section style="height: 100vh; background-color: black;color:#fff">
+        <h2>end-other</h2>
+    </section>
+    <script>
+        window.onload = function(){
+        let canvas_airpods = document.querySelector("#airpods");
+        let airpods_section = document.querySelector("#airpods-section");
+        let sectionHeight = airpods_section.offsetHeight;
+        let context = canvas_airpods.getContext('2d');
+        let img =new Array(145);
+        canvas_airpods.width = canvas_airpods.offsetWidth;
+        canvas_airpods.height = canvas_airpods.offsetHeight;
+        
+        //获取帧图片
+
+        for(let i=1; i <= img.length; i++){
+            let v = "";
+            if(i>=100){
+                v = "0"+i;
+            }
+            else if(i>=10){
+                v = "00"+i;
+            }else{
+                v = "000"+i;
+            }
+
+            img[i-1] =  new Image();
+            img[i-1].src = "https://www.apple.com.cn/105/media/us/airpods-pro/2019/1299e2f5_9206_4470_b28e_08307a42f19b/anim/sequence/large/01-hero-lightpass/"+v+".jpg";
+        }
+
+      
+        let space =  (sectionHeight - window.innerHeight)/img.length;   //步长
+        let scorllTop = 0;  //滚动的高度
+        let ration = 0.5;   //图片缩放比例
+        let width = img[0].width * ration; 
+        let height = img[0].height * ration;
+        console.log("w",width);
+        console.log("h",height);
+        let x = canvas_airpods.width*ration - width*ration;
+        let y = canvas_airpods.height*ration - height*ration;
+
+
+        img[0].onload = function(){
+           width = img[0].width * ration; 
+           height = img[0].height * ration;
+           x = canvas_airpods.width*ration - width*ration;
+           y = canvas_airpods.height*ration - height*ration;
+
+          context.drawImage(img[0], x, y,width,height);   //画第一帧
+          console.log(123323,img[0])
+        }
+      
+        
+      
+
+        window.addEventListener("scroll",function(){
+            scorllTop = document.documentElement.scrollTop || document.body.scrollTop;
+            let index = Math.ceil(scorllTop / space); //根据滚动的高度获取帧图片索引
+            //判断是否越界
+            if(index >= img.length-1){
+                console.log(123)
+                return ;
+            }
+           //绘画帧图片
+            context.clearRect(0,0,canvas_airpods.width,canvas_airpods.height);
+            context.drawImage(img[index], x, y,width,height);
+               
+        });
+    }
+    </script>
+</body>
+</html>
