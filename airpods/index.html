@@ -30,7 +30,7 @@
                     <p>可选耳塞尺寸,<br/>一直戴着都舒服。</p>
                 </div>
                 <div>
-                    <p>妙得不同凡响。</p>
+                    <p>妙得不同凡响。</p>fan
                 </div>
                 <!-- <img src="https://www.apple.com.cn/105/media/us/airpods-pro/2019/1299e2f5_9206_4470_b28e_08307a42f19b/anim/sequence/large/01-hero-lightpass/0000.jpg" alt=""> -->
             </div>
@@ -51,7 +51,6 @@
         canvas_airpods.height = canvas_airpods.offsetHeight;
         
         //获取帧图片
-
         for(let i=1; i <= img.length; i++){
             let v = "";
             if(i>=100){
@@ -73,8 +72,6 @@
         let ration = 0.5;   //图片缩放比例
         let width = img[0].width * ration; 
         let height = img[0].height * ration;
-        console.log("w",width);
-        console.log("h",height);
         let x = canvas_airpods.width*ration - width*ration;
         let y = canvas_airpods.height*ration - height*ration;
 
@@ -86,18 +83,14 @@
            y = canvas_airpods.height*ration - height*ration;
 
           context.drawImage(img[0], x, y,width,height);   //画第一帧
-          console.log(123323,img[0])
         }
       
-        
-      
-
+        //滚动监听
         window.addEventListener("scroll",function(){
             scorllTop = document.documentElement.scrollTop || document.body.scrollTop;
             let index = Math.ceil(scorllTop / space); //根据滚动的高度获取帧图片索引
             //判断是否越界
             if(index >= img.length-1){
-                console.log(123)
                 return ;
             }
            //绘画帧图片
