@@ -62,6 +62,8 @@ window.addEventListener("scroll", function () {
     navBg(scrollTop);
     skillboxAnimate(scrollTop);
     progressAnimate(scrollTop); //个人技能进度条
+    projectAnimate(scrollTop);
+    campusAnimate(scrollTop);
 });
 
 /**
@@ -76,8 +78,16 @@ function navbtnEvent(){
 
         if(nav.classList.contains("show")){
             header.classList.add("active");
+            this.classList.add("show");
+            this.querySelector("span").innerText="\ue61e";
        }else{
-            header.classList.remove("active");
+            let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            let info = document.querySelector("#info");
+            if(scrollTop < (info.offsetHeight - 20)){
+                header.classList.remove("active");
+            }
+            this.classList.remove("show");
+            this.querySelector("span").innerText="\ue620";
         }
     })
 }
@@ -140,12 +150,11 @@ function progressAnimate(scrollTop) {
     let percent =  skills.querySelectorAll(".skill-item h3 span");
 
     progressbox.forEach((el,k) => {
-            let itemTop = el.offsetTop - scrollTop + el.offsetHeight;   //进度条距离浏览器可视区域顶部的位置
+            let itemTop = el.offsetTop - scrollTop + el.offsetHeight;   //进度条底部距离浏览器可视区域顶部的位置
             let progress = el.querySelector(".progress"); //进度条
-       
+            console.log(itemTop)
             //判断进度条是否显示在页面，显示则给进度条加动画
             if (itemTop < (innerHeight - 20 )) {
-                
                 //防抖优化
                 if (progress.getAttribute("animated") == 1) {
                     return;
@@ -155,16 +164,64 @@ function progressAnimate(scrollTop) {
                 percent[k].innerText = `${skillValues[k].value*100}%`;
                 progress.setAttribute("animated", 1);
             } else {
+                console.log("hhhh")
                 //防抖优化
                 if (progress.getAttribute("animated") == 0) {
                     return;
                 }
-                //重置进度条
+                //移出页面时重置进度条
                 progress.style = "width:0";
                 progress.setAttribute("animated", 0);
             }
         }
     );
 }
+
+/**
+ * 项目盒子进入效果
+ */
+function projectAnimate(scrollTop){
+    let row = document.querySelector(".project .row");
+    let itemTop = row.offsetTop - scrollTop;   //个人技能栏目顶部距离浏览器可视区域顶部的位置
+  
+    // console.log(itemTop);
+    if(itemTop < (innerHeight - 20) && row.offsetHeight+itemTop > 0){
+        if(row.classList.contains("in")){
+            return;
+        }
+        row.classList.add("in");
+    }else{
+        if(!row.classList.contains("in")){
+            return;
+        }
+        row.classList.remove("in");
+    }
+}
+
+function campusAnimate(scrollTop) {
+
+    let campus = document.querySelector(".campus");
+    let item = campus.querySelectorAll(".item");
+
+    item.forEach((el,k) => {
+            let itemTop = el.offsetTop - scrollTop ;   
+            // && el.offsetHeight+itemTop > 0
+            if(itemTop < (innerHeight - 20) ){
+                if(el.classList.contains("in")){
+                    return;
+                }
+                el.classList.add("in");
+            }else{
+                if(!el.classList.contains("in")){
+                    return;
+                }
+                el.classList.remove("in");
+            }
+           
+        }
+    );
+}
+
+
 
 
