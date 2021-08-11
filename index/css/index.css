@@ -498,6 +498,7 @@ section.project .row.in {
 section.project .row .project-item {
   box-sizing: border-box;
   padding: 20px 20px;
+  text-align: center;
   font-size: 0;
   transition: all 0.4s linear;
 }
@@ -509,7 +510,8 @@ section.project .row .project-item a {
   display: block;
 }
 section.project .row .project-item img {
-  width: 100%;
+  max-width: 100%;
+  height: 200px;
   margin-bottom: 16px;
   border-radius: 4px;
 }
