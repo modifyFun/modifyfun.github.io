@@ -659,30 +659,36 @@ section.honor .warp ul.content li .left p {
 }
 @keyframes leftIn {
   from {
+    -webkit-transform: translateX(-100%);
     transform: translateX(-100%);
     opacity: 0.5;
   }
   to {
+    -webkit-transform: translateX(0);
     transform: translateX(0);
     opacity: 1;
   }
 }
 @keyframes rightIn {
   from {
+    -webkit-transform: translateX(100%);
     transform: translateX(100%);
     opacity: 0.5;
   }
   to {
+    -webkit-transform: translateX(0);
     transform: translateX(0);
     opacity: 1;
   }
 }
 @keyframes bottomIn {
   from {
+    -webkit-transform: translateY(100px);
     transform: translateY(100px);
     opacity: 0.5;
   }
   to {
+    -webkit-transform: translateY(0);
     transform: translateY(0);
     opacity: 1;
   }
