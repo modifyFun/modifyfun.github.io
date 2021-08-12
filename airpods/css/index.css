@@ -19,11 +19,14 @@ body {
   background-color: #000000;
   animation: show 3s cubic-bezier(0.4, 0, 1, 1);
 }
+
 .airpods-section .dec-container .dec div {
   margin-top: 100vh;
 }
 .airpods-section .dec-container .dec div:nth-child(1) {
-  margin-top: calc(100vh*0.5 - 50%);
+  margin-top: -50vh;
+  /* margin-top: calc(100vh*0.5 - 50%); */
+  /* transform: translateY(100%); */
 }
 .airpods-section .dec-container .dec div:nth-child(1) p {
   font-size: 80px;
