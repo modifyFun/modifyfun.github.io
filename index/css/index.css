@@ -384,7 +384,8 @@ section.page-content .call > div div::after {
   left: 50%;
   transform: translate(-50%, 95%);
 }
-section.page-content .call > div span {
+section.page-content .call > div span,
+section.page-content .call > div a {
   font-size: 22px;
   line-height: 54px;
   color: white;
