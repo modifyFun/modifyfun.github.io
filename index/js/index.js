@@ -56,6 +56,7 @@ let skillValues = [
 
 
 navbtnEvent(); //导航按钮点击展开导航栏
+tab();  //tab选项卡
 
 window.addEventListener("scroll", function () {
     let scrollTop = document.documentElement.scrollTop || document.body.scrollTop; //页面滑动距离
@@ -113,6 +114,43 @@ function navBg(scrollTop){
     }
 }
 
+/**
+ * tab选项卡
+ */
+function tab(){
+    let tabNav = document.querySelector("#tab-nav");
+    let tabNavItems = tabNav.querySelectorAll("li");
+    let tabItems =  document.querySelectorAll("#tab-content ul");
+    let currentIndex = 0;
+    let preventIndex = currentIndex;
+    tabNav.addEventListener("click",function(e){
+        let node = e.target;
+        let count = 0;
+        while(node.nodeName.toLowerCase() != "li"){
+            node = node.parentNode;
+            count ++;
+            if(count > 5){
+                break;
+            }
+        }
+        // let tab = node.getAttribute("tab");
+        // console.log(node.getAttribute("index"))
+
+        currentIndex = +node.getAttribute("index");
+        if(currentIndex != preventIndex){
+          
+            tabNavItems[preventIndex].classList.remove("active");
+            tabNavItems[currentIndex].classList.add("active");
+            tabItems[preventIndex].classList.remove("active");
+            tabItems[currentIndex].classList.add("active");
+        }
+        preventIndex = currentIndex;
+        // let pp= Object.getPrototypeOf(node,"tab");
+        // console.log(pp)
+        // console.log(node.attribute.tab);
+    });
+
+}
 
 /**
  * 个人技能内容盒子动画
@@ -198,6 +236,10 @@ function projectAnimate(scrollTop){
     }
 }
 
+/**
+ * 校园经历动画
+ * @param {*} scrollTop 
+ */
 function campusAnimate(scrollTop) {
 
     let campus = document.querySelector(".campus");

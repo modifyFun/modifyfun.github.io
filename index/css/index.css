@@ -181,7 +181,7 @@
 @font-face {
   font-family: 'iconfont';
   /* Project id 2729537 */
-  src: url('//at.alicdn.com/t/font_2729537_952e8s36rc4.woff2?t=1628587683724') format('woff2'), url('//at.alicdn.com/t/font_2729537_952e8s36rc4.woff?t=1628587683724') format('woff'), url('//at.alicdn.com/t/font_2729537_952e8s36rc4.ttf?t=1628587683724') format('truetype');
+  src: url('//at.alicdn.com/t/font_2729537_l79epyl2yn.woff2?t=1629128222938') format('woff2'), url('//at.alicdn.com/t/font_2729537_l79epyl2yn.woff?t=1629128222938') format('woff'), url('//at.alicdn.com/t/font_2729537_l79epyl2yn.ttf?t=1629128222938') format('truetype');
 }
 .header {
   width: 100%;
@@ -495,6 +495,40 @@ section.project .row {
 }
 section.project .row.in {
   animation: bottomIn 1s ease;
+}
+section.project .row .tab-nav {
+  display: flex;
+  font-family: 'iconfont';
+  justify-content: center;
+}
+section.project .row .tab-nav li {
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  background-color: rgba(222, 222, 222, 0.3);
+  border-radius: 50%;
+  margin: 20px;
+  cursor: pointer;
+}
+section.project .row .tab-nav li:hover {
+  box-shadow: 0 0 30px 3px #ccc;
+}
+section.project .row .tab-nav li span {
+  line-height: 60px;
+  font-size: 26px;
+  color: #9A9A9A;
+}
+section.project .row .tab-nav li.active {
+  background-color: #378C3F;
+}
+section.project .row .tab-nav li.active span {
+  color: #fff;
+}
+section.project .row .content ul {
+  display: none;
+}
+section.project .row .content ul.active {
+  display: block;
 }
 section.project .row .project-item {
   box-sizing: border-box;

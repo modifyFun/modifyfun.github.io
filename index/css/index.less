@@ -92,10 +92,10 @@ each(#media(), .(@v, @k, @i) {
 
 @font-face {
     font-family: 'iconfont';  /* Project id 2729537 */
-    src: url('//at.alicdn.com/t/font_2729537_952e8s36rc4.woff2?t=1628587683724') format('woff2'),
-         url('//at.alicdn.com/t/font_2729537_952e8s36rc4.woff?t=1628587683724') format('woff'),
-         url('//at.alicdn.com/t/font_2729537_952e8s36rc4.ttf?t=1628587683724') format('truetype');
-  }
+    src: url('//at.alicdn.com/t/font_2729537_l79epyl2yn.woff2?t=1629128222938') format('woff2'),
+         url('//at.alicdn.com/t/font_2729537_l79epyl2yn.woff?t=1629128222938') format('woff'),
+         url('//at.alicdn.com/t/font_2729537_l79epyl2yn.ttf?t=1629128222938') format('truetype');
+}
 
 .header {
     width   : 100%;
@@ -471,11 +471,48 @@ section.project {
     h2 {
         .column-title();
     }
-
     .row {
         .row-common();
         &.in{
             animation: bottomIn 1s ease;
+        }
+        .tab-nav{
+            display: flex;
+            font-family: 'iconfont';
+            justify-content: center;
+            li{
+                width: 60px;
+                height: 60px;
+                text-align: center;
+                background-color: rgba(222, 222, 222, 0.3);
+                border-radius: 50%;
+                margin: 20px;
+                cursor: pointer;
+                &:hover{
+                    box-shadow: 0 0 30px 3px #ccc;
+                }
+                span{
+                    line-height: 60px;
+                    font-size: 26px;
+                    color: #9A9A9A;
+                }
+                &.active{
+                    background-color: #378C3F;
+                    span{
+                        color: #fff;
+                    }
+                }
+                
+            }
+        }
+        .content{
+            ul{
+                display: none;
+                &.active{
+                    display: block;
+                }
+            }
+            
         }
         .project-item {
             box-sizing         : border-box;
