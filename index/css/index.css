@@ -329,6 +329,22 @@ section.page-content .content .title p {
   font-size: 18px;
   font-weight: lighter;
 }
+section.page-content .content .accest {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+section.page-content .content .accest a {
+  display: block;
+  padding: 10px;
+  width: 100px;
+  text-align: center;
+  background-color: #378c3f;
+  margin: 0 20px;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 4px;
+}
 section.page-content .call {
   position: absolute;
   z-index: 8;
